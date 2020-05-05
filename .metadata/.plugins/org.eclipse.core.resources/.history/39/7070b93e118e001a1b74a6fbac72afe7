@@ -1,0 +1,8 @@
+insert into user(id,user_name,password,role) values (10001,'admin','asd','admin');
+insert into user(id,user_name,password,role) values (10002,'emp1','asd','employee');
+insert into user(id,user_name,password,role) values (10003,'emp2','asd','employee');
+insert into user(id,user_name,password,role) values (10004,'cust1','asd','customer');
+insert into user(id,user_name,password,role) values (10005,'cust2','asd','customer');
+
+insert into address values(20001,'asdvc','COR','RAJ',123);
+insert into address values(20002,'asdvc','COR','RAJ',123);

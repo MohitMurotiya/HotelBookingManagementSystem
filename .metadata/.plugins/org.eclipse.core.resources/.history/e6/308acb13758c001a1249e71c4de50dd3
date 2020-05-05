@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package com.cg.hotel.model;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * @author HBMS
+ * Hotel.java
+ * May 2, 2020
+ */
+public class Hotel {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long hotelId;
+	@Column(name = "name")
+	private String hotelName;
+	@Column(name = "rating")
+	private int rating;
+	@Column(name = "city")
+	private String city;
+	@Column(name = "pincode")
+	private int pincode;
+	@Column(name = "contactNumber")
+	private String contactNum;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "description")
+	private String description;
+	
+}

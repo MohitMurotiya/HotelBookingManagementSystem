@@ -1,0 +1,10 @@
+package com.cg.dao;
+
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name = "UserManagement")
+@RibbonClient(name = "UserManagement")
+public interface UserRepositoryProxy {
+
+}

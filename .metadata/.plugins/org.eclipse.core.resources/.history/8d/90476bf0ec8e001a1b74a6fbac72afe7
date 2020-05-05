@@ -1,0 +1,13 @@
+package com.cg.util;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cg.dao.UserRepositoryProxy;
+
+public class UserViewController {
+	
+	@Autowired
+	private UserRepositoryProxy proxy;
+	
+	
+}

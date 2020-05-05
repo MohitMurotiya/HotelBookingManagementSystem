@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package com.cg.hotel.service;
+
+import java.util.List;
+
+import com.cg.hotel.model.Hotel;
+
+/**
+ * @author HBMS
+ * HotelServiceImpl.java
+ * May 2, 2020
+ */
+public class HotelServiceImpl implements HotelService {
+
+	@Override
+	public List<Hotel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void createHotel(Hotel user) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deleteHotel(String username) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateHotel(Hotel user) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

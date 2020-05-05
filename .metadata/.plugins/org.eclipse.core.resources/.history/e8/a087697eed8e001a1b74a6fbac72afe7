@@ -1,0 +1,26 @@
+package com.cg.util;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.cg.dao.UserRepositoryProxy;
+import com.cg.model.LoginModel;
+import com.cg.model.RegistrationModel;
+
+public class UserViewController {
+	
+	@Autowired
+	private UserRepositoryProxy proxy;
+	
+	@GetMapping("/users")
+	public List<RegistrationModel> findAll(){
+		return proxy.findAll();
+	}
+	
+	@GetMapping("/users/loginDetails")
+	public List<LoginModel> findAllLoginDetails(){
+		return proxy.findAllLoginDetails();
+	}
+}

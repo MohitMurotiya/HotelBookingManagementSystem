@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package com.cg.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.cg.model.User;
+
+/**
+ * @author User
+ *
+ */
+public interface UserRepository extends JpaRepository<User, Long> {
+
+	//User findByUsername(String name);
+	void deleteByUsername(String name);
+}

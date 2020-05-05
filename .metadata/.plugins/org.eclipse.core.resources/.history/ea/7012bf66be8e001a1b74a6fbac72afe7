@@ -1,0 +1,76 @@
+/**
+ * 
+ */
+package com.cg.util;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cg.dao.UserRepository;
+import com.cg.model.RegistrationModel;
+import com.cg.model.LoginModel;
+import com.cg.service.RegistartionService;
+import com.cg.service.UserService;
+
+/**
+ * @author User
+ *
+ */
+@RestController
+public class UserController {
+	
+	@Autowired
+	private UserService service;
+	
+	@GetMapping("/users")
+	public List<LoginModel> findAll(){
+		System.out.println("Inside findAll() method of UserController");
+		return service.findAll();
+	}
+	
+	@GetMapping("/users/{role}")
+	public List<LoginModel> findByRole(@PathVariable String role){
+		System.out.println("Inside findByRole() method of UserController");
+		return service.findByRole(role);
+	}
+	
+	@GetMapping("/user/username/{user}/and/password/{pass}")
+	public LoginModel findByUserName(@PathVariable String user, @PathVariable String pass) {
+		System.out.println("Inside findByUserName() method of UserController");
+		LoginModel u = service.findByUsername(user);
+		if(u.getPassword().equals(pass)) {
+			return u;
+		} else
+			return null;
+	}
+	
+	@PutMapping("/user/{username}")
+	public void updateUser(@RequestBody LoginModel user) {
+		System.out.println("Inside updateProduct() method of UserController");
+		service.updateUser(user);
+	}
+	
+	@Autowired
+	private RegistartionService service1;
+	
+	@PostMapping("/register/add")
+	public void register(@RequestBody RegistrationModel cust) {
+		System.out.println("aja isme plss");
+		service1.createCustomer(cust);
+	}
+	
+	@GetMapping("/customers")
+	public List<RegistrationModel> findAll1(){
+		
+		return service1.findAll();
+	}
+	
+}

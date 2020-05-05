@@ -1,0 +1,6 @@
+server.port = 8001
+
+spring.application.name=login-microservice
+
+spring.jpa.show-sql=true
+spring.h2.console.enabled=true

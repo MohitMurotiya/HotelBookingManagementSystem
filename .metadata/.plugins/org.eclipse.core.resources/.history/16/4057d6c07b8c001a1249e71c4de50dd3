@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.cg.hotel.dao;
+
+/**
+ * @author HBMS
+ *
+ */
+public interface HotelRepositoryProxy {
+
+}

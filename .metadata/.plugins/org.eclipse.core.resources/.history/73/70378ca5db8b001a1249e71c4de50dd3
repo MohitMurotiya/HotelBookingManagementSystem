@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+package com.cg.util;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author User
+ *
+ */
+@RestController
+public class LoginController {
+	
+	@Autowired
+	private LoginRepository repos;
+	
+	
+	@GetMapping("/login/username/{user}/and/password/{password}")
+	public User retrieveUser(@PathVariable String user, @PathVariable String password) {
+		
+		User log = repos.findByUsername(user);
+		if(log.getPassword().equals(password)) {
+			return log;
+		} else
+			return null;
+	}
+	
+	@PostMapping("/login/user")
+	public User createUser(User user) {
+		User log = repos.save(user);
+		return log;
+	}
+	
+	@DeleteMapping("/login/user/{id}")
+	public void deleteUser(@PathVariable Long id) {
+		repos.deleteById(id);
+	}
+	
+	@GetMapping("/login/users")
+	public List<User> findAllUsers(){
+		return repos.findAll();
+	}
+	
+}

@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package com.cg.hotel.service;
+
+/**
+ * @author HBMS
+ * HotelService.java
+ * May 2, 2020
+ */
+public interface HotelService {
+
+}

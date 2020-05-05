@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package com.cg;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ * @author User
+ *
+ */
+public interface LoginRepository extends JpaRepository<Login, Long> {
+
+	Login findByUsername(String name);
+}

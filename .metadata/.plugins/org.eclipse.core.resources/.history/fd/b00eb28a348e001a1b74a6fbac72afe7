@@ -1,0 +1,29 @@
+package com.cg.util;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.cg.model.Customer;
+import com.cg.service.RegistartionService;
+
+public class RegistrationController {
+	
+	@Autowired
+	private RegistartionService service;
+	
+	@PostMapping("/register/add")
+	public void register(@RequestBody Customer cust) {
+		System.out.println("aja isme plss");
+		service.createCustomer(cust);
+	}
+	
+	@GetMapping("/customers")
+	public List<Customer> findAll(){
+		
+		return service.findAll();
+	}
+}

@@ -1,0 +1,21 @@
+package com.cg;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cg.model.User;
+
+@RestController
+public class LoginServiceController {
+	
+	@Autowired
+	private LoginServiceProxy proxy;
+	
+	@PostMapping("/user/add")
+	public void createUser(@RequestBody User user) {
+		System.out.println("Inside createUser() method of UserController");
+		proxy.createUser(user);
+	}
+}

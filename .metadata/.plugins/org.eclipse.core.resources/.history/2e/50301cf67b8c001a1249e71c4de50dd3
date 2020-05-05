@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.cg.hotel.dao;
+
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.FeignClient;
+
+/**
+ * @author HBMS
+ *
+ */
+@FeignClient(name = "HotelManagement")
+@RibbonClient(name = "HotelManagement")
+public interface HotelRepositoryProxy {
+	
+}

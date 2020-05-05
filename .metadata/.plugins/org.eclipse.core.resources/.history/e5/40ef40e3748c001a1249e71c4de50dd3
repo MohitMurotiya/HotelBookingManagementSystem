@@ -1,0 +1,5 @@
+insert into hotel(id,hotel_name,hotel_address,rating,) values (10001,'admin','asd','admin');
+insert into user(id,user_name,password,role) values (10002,'emp1','asd','employee');
+insert into user(id,user_name,password,role) values (10003,'emp2','asd','employee');
+insert into user(id,user_name,password,role) values (10004,'cust1','asd','customer');
+insert into user(id,user_name,password,role) values (10005,'cust2','asd','customer');

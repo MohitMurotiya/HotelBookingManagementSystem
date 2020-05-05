@@ -1,0 +1,10 @@
+1588616836504	Delete element
+1588653625695	Rename type 'UserDataProviderApplication'
+1588653628330	Rename type 'UserDataProviderApplicationTests'
+1588654347787	Rename type 'User'
+1588654368138	Rename type 'Customer'
+1588675901098	Rename type 'UserService'
+1588676705275	Delete element
+1588676732784	Rename type 'UserServiceImpl'
+1588677506461	Rename type 'UserRepository'
+1588682798687	Copy package

@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package com.cg.model;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * @author User
+ *
+ */
+public class Customer {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	@Column(name = "fname")
+	private String firstName;
+	@Column(name = "lname")
+	private String lastName;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "number")
+	private String number;
+	
+}

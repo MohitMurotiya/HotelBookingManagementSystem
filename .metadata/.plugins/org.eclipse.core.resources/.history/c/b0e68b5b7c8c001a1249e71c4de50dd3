@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.cg.hotel.util;
+
+/**
+ * @author HBMS
+ * May 2, 2020
+ */
+public class HotelServiceController {
+
+}

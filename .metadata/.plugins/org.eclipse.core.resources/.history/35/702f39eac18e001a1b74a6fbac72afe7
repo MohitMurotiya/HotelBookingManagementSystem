@@ -1,0 +1,20 @@
+package com.cg.service;
+
+import java.util.List;
+
+import com.cg.model.LoginModel;
+import com.cg.model.RegistrationModel;
+
+public interface UserManagementService {
+
+	List<LoginModel> findAll();
+
+	//List<LoginModel> findByRole(String role);
+
+	//LoginModel findByUsername(String username);
+
+	void updateUser(LoginModel user);
+
+	void createCustomer(RegistrationModel cust);
+
+}
