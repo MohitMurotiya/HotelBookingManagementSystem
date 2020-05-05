@@ -1,5 +1,0 @@
-package com.cg;
-
-public interface LoginServiceProxy {
-
-}
