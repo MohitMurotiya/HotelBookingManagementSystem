@@ -38,8 +38,9 @@ public class UserViewController {
 	@GetMapping("/user/username/{username}/password/{password}")
 	public RegistrationModel findByUserName(@PathVariable String username, @PathVariable String password) {
 
-		RegistrationModel model = proxy.findAll().stream().filter(register -> register.getUser().getUsername().equals(username)).findAny().get();
-		if (model.getUser().getPassword().equals(password)) {
+		LoginModel login = proxy.findAllLoginDetails().stream().filter(user -> user.getUsername().equals(username)).findAny().get();
+		if (login.getPassword().equals(password)) {
+			RegistrationModel model = proxy.findAll().stream().filter(register -> register.getUser().equals(login)).findAny().get();
 			return model;
 		} else {
 			return null;
