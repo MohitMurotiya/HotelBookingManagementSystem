@@ -26,9 +26,9 @@ public interface HotelRepositoryProxy {
 	@PostMapping("/hotel/add")
 	void createHotel(@RequestBody Hotel hotel);
 	
-	@PutMapping("/hotel/update/{name}")
+	@PutMapping("/hotel/update")
 	void updateHotel(@RequestBody Hotel hotel);
 	
-	@DeleteMapping("/hotel/delete/{name}")
-	public void deleteHotel(@PathVariable String name);
+	@DeleteMapping("hotel/delete/{hotelId}")
+	public void deleteHotel(@PathVariable Long hotelId);
 }

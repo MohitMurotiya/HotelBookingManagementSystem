@@ -33,15 +33,15 @@ public class HotelServiceImpl implements HotelService {
 	}
 
 	@Override
-	public void deleteHotel(String name) {
+	public void deleteHotel(Long hotelId) {
 		System.out.println("Inside deleteHotel() method of HotelServiceImpl");
-		repos.deleteByHotelName(name);
+		repos.deleteById(hotelId);
 	}
 
 	@Override
 	public void updateHotel(Hotel hotel) {
 		System.out.println("Inside updateHotel() method of HotelServiceImpl");
-		repos.deleteByHotelName(hotel.getHotelName());
+		repos.deleteById(hotel.getHotelId());
 		repos.save(hotel);
 	}
 

@@ -31,12 +31,12 @@ public class HotelServiceController {
 		proxy.createHotel(hotel);
 	}
 	
-	@DeleteMapping("/hotel/delete/{name}")
-	public void deleteHotel(@PathVariable String name) {
-		proxy.deleteHotel(name);
+	@DeleteMapping("hotel/delete/{hotelId}")
+	public void deleteHotel(@PathVariable Long hotelId) {
+		proxy.deleteHotel(hotelId);
 	}
 	
-	@PutMapping("/hotel/update/{name}")
+	@PutMapping("/hotel/update")
 	public void updateHotel(@RequestBody Hotel hotel) {
 		proxy.updateHotel(hotel);
 	}

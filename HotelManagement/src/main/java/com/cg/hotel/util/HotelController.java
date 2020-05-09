@@ -15,37 +15,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.hotel.model.Hotel;
+import com.cg.hotel.model.Room;
 import com.cg.hotel.service.HotelService;
+import com.cg.hotel.service.RoomService;
 
 /**
- * @author HBMS
- * HotelController.java
- * May 2, 2020
+ * @author HBMS HotelController.java May 2, 2020
  */
 
 @RestController
 public class HotelController {
-	
+
 	@Autowired
 	private HotelService service;
-	
+
 	@GetMapping("/hotels")
-	public List<Hotel> findAll(){
+	public List<Hotel> findAll() {
 		System.out.println("Inside findALl() method of HotelController");
 		return service.findAll();
 	}
-	
+
 	@PostMapping("/hotel/add")
 	public void createHotel(@RequestBody Hotel hotel) {
 		service.createHotel(hotel);
 	}
-	
-	@DeleteMapping("hotel/delete/{name}")
-	public void deleteHotel(@PathVariable String name) {
-		service.deleteHotel(name);
+
+	@DeleteMapping("hotel/delete/{hotelId}")
+	public void deleteHotel(@PathVariable Long hotelId) {
+		service.deleteHotel(hotelId);
 	}
-	
-	@PutMapping("hotel/update/{name}")
+
+	@PutMapping("hotel/update")
 	public void updateHotel(@RequestBody Hotel hotel) {
 		service.updateHotel(hotel);
 	}

@@ -3,23 +3,29 @@
  */
 package com.cg.hotel.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
- * @author HBMS
- * Hotel.java
- * May 2, 2020
+ * @author HBMS Hotel.java May 2, 2020
  */
 @Entity
 public class Hotel {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "hotelId")
+	private Long hotelId;
 	@Column(name = "name")
 	private String hotelName;
 	@Column(name = "rating")
@@ -34,7 +40,10 @@ public class Hotel {
 	private String email;
 	@Column(name = "description")
 	private String description;
-	
+
+	@OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL)
+	private List<Room> rooms;
+
 	/**
 	 * 
 	 */
@@ -52,10 +61,10 @@ public class Hotel {
 	 * @param email
 	 * @param description
 	 */
-	public Hotel(Long id, String hotelName, int rating, String city, int pincode, String contact, String email,
+	public Hotel(Long hotelId, String hotelName, int rating, String city, int pincode, String contact, String email,
 			String description) {
 		super();
-		this.id = id;
+		this.hotelId = hotelId;
 		this.hotelName = hotelName;
 		this.rating = rating;
 		this.city = city;
@@ -68,15 +77,15 @@ public class Hotel {
 	/**
 	 * @return the hotelId
 	 */
-	public Long getId() {
-		return id;
+	public Long getHotelId() {
+		return hotelId;
 	}
 
 	/**
 	 * @param hotelId the hotelId to set
 	 */
-	public void setId(Long id) {
-		this.id = id;
+	public void setHotelId(Long hotelId) {
+		this.hotelId = hotelId;
 	}
 
 	/**
@@ -177,6 +186,13 @@ public class Hotel {
 		this.description = description;
 	}
 	
-	
-	
+	@JsonManagedReference
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
+
 }

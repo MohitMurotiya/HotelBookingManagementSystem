@@ -18,7 +18,7 @@ public interface HotelService {
 	
 	void createHotel(Hotel hotel);
 
-	void deleteHotel(String name);
+	void deleteHotel(Long hotelId);
 	
 	void updateHotel(Hotel hotel);
 }

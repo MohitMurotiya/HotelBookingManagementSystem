@@ -3,14 +3,14 @@
  */
 package com.cg.hotel.model;
 
+import java.util.List;
+
 /**
- * @author HBMS
- * Hotel.java
- * May 2, 2020
+ * @author HBMS Hotel.java May 2, 2020
  */
 public class Hotel {
-	
-	private Long id;
+
+	private Long hotelId;
 	private String hotelName;
 	private int rating;
 	private String city;
@@ -18,7 +18,8 @@ public class Hotel {
 	private String contact;
 	private String email;
 	private String description;
-	
+	private List<Room> rooms;
+
 	/**
 	 * 
 	 */
@@ -36,10 +37,10 @@ public class Hotel {
 	 * @param email
 	 * @param description
 	 */
-	public Hotel(Long id, String hotelName, int rating, String city, int pincode, String contact, String email,
+	public Hotel(Long hotelId, String hotelName, int rating, String city, int pincode, String contact, String email,
 			String description) {
 		super();
-		this.id = id;
+		this.hotelId = hotelId;
 		this.hotelName = hotelName;
 		this.rating = rating;
 		this.city = city;
@@ -52,15 +53,15 @@ public class Hotel {
 	/**
 	 * @return the hotelId
 	 */
-	public Long getId() {
-		return id;
+	public Long getHotelId() {
+		return hotelId;
 	}
 
 	/**
 	 * @param hotelId the hotelId to set
 	 */
-	public void setId(Long id) {
-		this.id = id;
+	public void setHotelId(Long hotelId) {
+		this.hotelId = hotelId;
 	}
 
 	/**
@@ -160,7 +161,13 @@ public class Hotel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
+
 }
