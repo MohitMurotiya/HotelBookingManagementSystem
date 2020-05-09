@@ -4613,3 +4613,436 @@ java.util.concurrent.TimeoutException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:132)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.lsp4e 4 0 2020-05-09 16:10:17.409
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1957)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:165)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.lsp4e 4 0 2020-05-09 16:10:23.374
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2093)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:165)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:34.658
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:34.668
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@4f6938cb[org.springframework.tooling.boot.ls:1.15.0.202001210741(id=631)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:34.676
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.090
+!MESSAGE Boot LS startup time from start to initialized: 8404ms
+
+!ENTRY org.eclipse.jface.text 4 0 2020-05-09 16:13:43.119
+!MESSAGE java.lang.NullPointerException
+!STACK 0
+java.util.concurrent.CompletionException: java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:314)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:319)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1155)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:479)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1016)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1665)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1598)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+Caused by: java.lang.NullPointerException
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.279
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.PCqvsHKwisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.295
+!MESSAGE subscribing to classpath changes: sts4.classpath.PCqvsHKw isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.305
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.313
+!MESSAGE subsribers = {sts4.classpath.smSgvNym=Send Classpath Notifications(5518), sts4.classpath.PCqvsHKw=Send Classpath Notifications(5599), sts4.classpath.urHjFrnl=Send Classpath Notifications(3561)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.322
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.332
+!MESSAGE project HotelManagement ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.344
+!MESSAGE project HotelUpdateService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.355
+!MESSAGE project HotelViewService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.369
+!MESSAGE Preparing classpath changed notification HotelManagement
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.377
+!MESSAGE project NetflixEurekaNamingServer ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.386
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.394
+!MESSAGE project RoomUpdateService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.402
+!MESSAGE project RoomViewService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.411
+!MESSAGE project UserManagement ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.423
+!MESSAGE project UserUpdateService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.432
+!MESSAGE project UserViewService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.440
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.449
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.PCqvsHKw => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.905
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.934
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw HotelManagement false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.955
+!MESSAGE Preparing classpath changed notification HotelUpdateService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:43.972
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.001
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.025
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw HotelUpdateService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.037
+!MESSAGE Preparing classpath changed notification HotelViewService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.053
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.120
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.215
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw HotelViewService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.250
+!MESSAGE Preparing classpath changed notification NetflixEurekaNamingServer
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.275
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.372
+!MESSAGE classpath=169 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.399
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw NetflixEurekaNamingServer false 169
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.415
+!MESSAGE Preparing classpath changed notification RoomUpdateService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.431
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.520
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.550
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw RoomUpdateService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.570
+!MESSAGE Preparing classpath changed notification RoomViewService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.586
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.629
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.667
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw RoomViewService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.682
+!MESSAGE Preparing classpath changed notification UserManagement
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.697
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.717
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.738
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw UserManagement false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.745
+!MESSAGE Preparing classpath changed notification UserUpdateService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.754
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.770
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.784
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw UserUpdateService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.793
+!MESSAGE Preparing classpath changed notification UserViewService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.803
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.844
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.867
+!MESSAGE buffering callback sts4.classpath.PCqvsHKw UserViewService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:44.874
+!MESSAGE executing callback sts4.classpath.PCqvsHKw 9 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:13:45.157
+!MESSAGE executing callback sts4.classpath.PCqvsHKw SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:05.966
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PCqvsHKw
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:05.978
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.PCqvsHKw
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:05.986
+!MESSAGE subsribers = {sts4.classpath.smSgvNym=Send Classpath Notifications(5518), sts4.classpath.urHjFrnl=Send Classpath Notifications(3561)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:05.995
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PCqvsHKw => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:06.917
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:06.926
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@4f6938cb[org.springframework.tooling.boot.ls:1.15.0.202001210741(id=631)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:06.934
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:09.922
+!MESSAGE Boot LS startup time from start to initialized: 2980ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:09.975
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.iWmrdPYaisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.013
+!MESSAGE subscribing to classpath changes: sts4.classpath.iWmrdPYa isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.041
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.052
+!MESSAGE subsribers = {sts4.classpath.smSgvNym=Send Classpath Notifications(5518), sts4.classpath.iWmrdPYa=Send Classpath Notifications(5632), sts4.classpath.urHjFrnl=Send Classpath Notifications(3561)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.062
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.072
+!MESSAGE project HotelManagement ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.084
+!MESSAGE Preparing classpath changed notification HotelManagement
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.092
+!MESSAGE project HotelUpdateService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.100
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.107
+!MESSAGE project HotelViewService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.116
+!MESSAGE project NetflixEurekaNamingServer ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.123
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.131
+!MESSAGE project RoomUpdateService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.138
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa HotelManagement false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.147
+!MESSAGE project RoomViewService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.154
+!MESSAGE Preparing classpath changed notification HotelUpdateService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.164
+!MESSAGE project UserManagement ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.173
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.180
+!MESSAGE project UserUpdateService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.188
+!MESSAGE project UserViewService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.196
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.203
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.213
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa HotelUpdateService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.220
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.iWmrdPYa => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.229
+!MESSAGE Preparing classpath changed notification HotelViewService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.237
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.252
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.267
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa HotelViewService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.275
+!MESSAGE Preparing classpath changed notification NetflixEurekaNamingServer
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.282
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.298
+!MESSAGE classpath=169 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.312
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa NetflixEurekaNamingServer false 169
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.364
+!MESSAGE Preparing classpath changed notification RoomUpdateService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.372
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.386
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.402
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa RoomUpdateService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.410
+!MESSAGE Preparing classpath changed notification RoomViewService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.418
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.436
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.451
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa RoomViewService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.458
+!MESSAGE Preparing classpath changed notification UserManagement
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.466
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.481
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.496
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa UserManagement false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.503
+!MESSAGE Preparing classpath changed notification UserUpdateService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.513
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.528
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.542
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa UserUpdateService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.549
+!MESSAGE Preparing classpath changed notification UserViewService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.556
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.571
+!MESSAGE classpath=166 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.585
+!MESSAGE buffering callback sts4.classpath.iWmrdPYa UserViewService false 166
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.592
+!MESSAGE executing callback sts4.classpath.iWmrdPYa 9 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:15:10.755
+!MESSAGE executing callback sts4.classpath.iWmrdPYa SUCCESS [done]
+
+!ENTRY org.eclipse.jface.text 4 0 2020-05-09 16:16:26.160
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.compiler.lookup.UnresolvedAnnotationBinding.resolve(UnresolvedAnnotationBinding.java:34)
+	at org.eclipse.jdt.internal.compiler.lookup.UnresolvedAnnotationBinding.getAnnotationType(UnresolvedAnnotationBinding.java:41)
+	at org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding.addStandardAnnotations(AnnotationBinding.java:46)
+	at org.eclipse.jdt.internal.compiler.lookup.BinaryTypeBinding.retrieveAnnotations(BinaryTypeBinding.java:1691)
+	at org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding.getAnnotations(ReferenceBinding.java:1052)
+	at org.eclipse.jdt.core.dom.TypeBinding.getAnnotations(TypeBinding.java:122)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getAnnotations(JavadocHover.java:1192)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.addAnnotations(JavadocHover.java:1149)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:757)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:678)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:670)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:165)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:16:48.150
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.iWmrdPYa
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:16:48.162
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.iWmrdPYa
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:16:48.173
+!MESSAGE subsribers = {sts4.classpath.smSgvNym=Send Classpath Notifications(5518), sts4.classpath.urHjFrnl=Send Classpath Notifications(3561)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-09 16:16:48.184
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.iWmrdPYa => OK

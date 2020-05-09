@@ -6,7 +6,6 @@ INDEX VERSION 1.131+C:\Users\User\Desktop\Capgemni Projects\Final Project\.metad
 1769689457.index
 1484620924.index
 760228109.index
-3450466935.index
 1146556674.index
 1440573535.index
 3876921035.index
