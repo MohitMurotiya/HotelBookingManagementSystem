@@ -1,0 +1,29 @@
+package com.cg.room.util;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cg.room.dao.RoomRepositoryProxy;
+import com.cg.room.model.Room;
+
+@RestController
+public class RoomController {
+	
+	@Autowired
+	private RoomRepositoryProxy proxy;
+	
+	@GetMapping("/rooms")
+	public List<Room> findAll(){
+		return proxy.findAllRooms();
+	}
+	
+	@GetMapping("rooms/{hotelRoom}")
+	public List<Room> findAllRooms(@PathVariable String hotelName){
+		return proxy.findAllRooms().stream().filter(room -> room.getHotel().getHotelName().equals(hotelName)).collect(Collectors.toList());
+	}
+}

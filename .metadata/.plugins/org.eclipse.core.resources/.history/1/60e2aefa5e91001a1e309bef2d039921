@@ -1,0 +1,5 @@
+server.port = 8021
+
+spring.application.name=HotelService
+
+eureka.client.serviceUrl.defaultZone=http://localhost:9768/eureka

@@ -1,0 +1,75 @@
+/**
+ * 
+ */
+package com.cg.hotel.util;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cg.hotel.model.Hotel;
+import com.cg.hotel.model.Room;
+import com.cg.hotel.service.HotelService;
+import com.cg.hotel.service.RoomService;
+
+/**
+ * @author HBMS
+ * HotelController.java
+ * May 2, 2020
+ */
+
+@RestController
+public class HotelController {
+	
+	@Autowired
+	private HotelService service;
+	
+	@Autowired
+	private RoomService ser;
+	
+	@GetMapping("/rooms")
+	public List<Room> findAllRooms(){
+		System.out.println("Inside findALl() method of HotelController");
+		return ser.findAll();
+	}
+	
+	@PostMapping("/room/add")
+	public void createRoom(@RequestBody Room room) {
+		
+		ser.createRoom(room);
+	}
+	
+	@GetMapping("hotel/{name}")
+	public List<Room> hotelRooms(@PathVariable String name){
+		Hotel hotel = service.findAll().stream().filter(h -> h.getHotelName().equals(name)).findAny().get();
+		return hotel.getRooms();
+	}
+	
+	@GetMapping("/hotels")
+	public List<Hotel> findAll(){
+		System.out.println("Inside findALl() method of HotelController");
+		return service.findAll();
+	}
+	
+	@PostMapping("/hotel/add")
+	public void createHotel(@RequestBody Hotel hotel) {
+		service.createHotel(hotel);
+	}
+	
+	@DeleteMapping("hotel/delete/{name}")
+	public void deleteHotel(@PathVariable String name) {
+		service.deleteHotel(name);
+	}
+	
+	@PutMapping("hotel/update/{name}")
+	public void updateHotel(@RequestBody Hotel hotel) {
+		service.updateHotel(hotel);
+	}
+}

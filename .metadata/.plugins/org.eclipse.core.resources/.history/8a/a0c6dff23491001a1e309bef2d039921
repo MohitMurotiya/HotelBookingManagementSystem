@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package com.cg.hotel.util;
+
+/**
+ * @author HBMS
+ * RoomController.java
+ * May 8, 2020
+ */
+public class RoomController {
+
+}

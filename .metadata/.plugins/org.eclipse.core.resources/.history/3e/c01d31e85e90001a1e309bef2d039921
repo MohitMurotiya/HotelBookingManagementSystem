@@ -1,0 +1,5 @@
+package com.cg.hotel.service;
+
+public interface RoomService {
+
+}
