@@ -1,0 +1,22 @@
+package com.cg.util;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cg.dao.BookingRepositoryProxy;
+import com.cg.model.Booking;
+
+@RestController
+public class BookingController {
+	
+	@Autowired
+	private BookingRepositoryProxy proxy;
+	
+	@GetMapping("/bookings")
+	public List<Booking> findAll(){
+		return proxy.findAll();
+	}
+}

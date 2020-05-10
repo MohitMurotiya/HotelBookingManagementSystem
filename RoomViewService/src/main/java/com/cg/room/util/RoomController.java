@@ -25,15 +25,15 @@ public class RoomController {
 		return proxy.findAllRooms();
 	}
 	
-	@GetMapping("/rooms/hotelName/{name}")
-	public List<Room> findRoomsByHotelName(@PathVariable String name) {
-		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelName().equals(name)).findAny().get();
-		return hotel.getRooms();
+	@GetMapping("/rooms/hotelName/{hotelId}")
+	public List<Room> findRoomsByHotelName(@PathVariable Long hotelId) {
+		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelId()==hotelId).findAny().get();
+		return hotel.getRooms().stream().filter(l -> l.isAvailability()==true).collect(Collectors.toList());
 	}
 	
-	@GetMapping("/rooms/hotelName/{name}/roomType/{type}")
-	public List<Room> findRoomsByType(@PathVariable String name, @PathVariable String type){
-		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelName().equals(name)).findAny().get();
-		return hotel.getRooms().stream().filter(l -> l.getRoomType().equals(type)).collect(Collectors.toList());
+	@GetMapping("/rooms/hotelName/{hotelId}/roomType/{type}")
+	public List<Room> findRoomsByType(@PathVariable Long hotelId, @PathVariable String type){
+		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelId()==hotelId).findAny().get();
+		return hotel.getRooms().stream().filter(l -> l.getRoomType().equals(type) && l.isAvailability()==true).collect(Collectors.toList());
 	}
 }

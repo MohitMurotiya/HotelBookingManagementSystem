@@ -35,7 +35,7 @@ public class UserManagementServiceImpl implements UserManagementService {
 	@Override
 	public void updateRegistrationDetails(RegistrationModel user) {
 		System.out.println("Inside updateRegistrationDetails() method of UserManagementServiceImpl");
-		repos.deleteById(user.getId());
+		//repos.deleteById(user.getId());
 		repos.save(user);
 	}
 
@@ -50,7 +50,7 @@ public class UserManagementServiceImpl implements UserManagementService {
 	public void updateLoginDetails(LoginModel user) {
 		System.out.println("Inside updateLoginDetails() method of UserManagementServiceImpl");
 		// loginrepos.deleteByUsername(user.getUsername());
-		loginrepos.deleteById(user.getId());
+		//loginrepos.deleteById(user.getId());
 		loginrepos.save(user);
 	}
 

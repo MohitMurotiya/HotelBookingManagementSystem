@@ -41,7 +41,7 @@ public class HotelServiceImpl implements HotelService {
 	@Override
 	public void updateHotel(Hotel hotel) {
 		System.out.println("Inside updateHotel() method of HotelServiceImpl");
-		repos.deleteById(hotel.getHotelId());
+		//repos.deleteById(hotel.getHotelId());
 		repos.save(hotel);
 	}
 

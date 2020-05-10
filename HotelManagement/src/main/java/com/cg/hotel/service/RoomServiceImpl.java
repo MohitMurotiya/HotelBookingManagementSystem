@@ -45,7 +45,7 @@ public class RoomServiceImpl implements RoomService{
 	public void updateRoom(Room room) {
 		
 		System.out.println("Inside updateHotel() method of RoomServiceImpl");
-		repos.deleteById(room.getId());
+		//repos.deleteById(room.getId());
 		repos.save(room);
 	}
 }
