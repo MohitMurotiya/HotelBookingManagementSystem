@@ -25,6 +25,11 @@ public class RoomController {
 		return proxy.findAllRooms();
 	}
 	
+	@GetMapping("/room/by/{roomId}")
+	public Room findById(@PathVariable Long roomId) {
+		return proxy.findAllRooms().stream().filter(room -> room.getId()==roomId).findAny().get();
+	}
+	
 	@GetMapping("/rooms/hotelName/{hotelId}")
 	public List<Room> findRoomsByHotelName(@PathVariable Long hotelId) {
 		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelId()==hotelId).findAny().get();
@@ -35,5 +40,17 @@ public class RoomController {
 	public List<Room> findRoomsByType(@PathVariable Long hotelId, @PathVariable String type){
 		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelId()==hotelId).findAny().get();
 		return hotel.getRooms().stream().filter(l -> l.getRoomType().equals(type) && l.isAvailability()==true).collect(Collectors.toList());
+	}
+	
+	@GetMapping("/rooms-admin/hotelName/{hotelId}")
+	public List<Room> findRoomsByHotel(@PathVariable Long hotelId) {
+		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelId()==hotelId).findAny().get();
+		return hotel.getRooms();
+	}
+	
+	@GetMapping("/rooms-admin/hotelName/{hotelId}/roomType/{type}")
+	public List<Room> findRooms(@PathVariable Long hotelId, @PathVariable String type){
+		Hotel hotel = proxy.findAll().stream().filter(h -> h.getHotelId()==hotelId).findAny().get();
+		return hotel.getRooms().stream().filter(l -> l.getRoomType().equals(type)).collect(Collectors.toList());
 	}
 }

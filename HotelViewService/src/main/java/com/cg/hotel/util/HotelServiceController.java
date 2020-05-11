@@ -37,9 +37,14 @@ public class HotelServiceController {
 		return proxy.findAll();
 	}
 	
+	@GetMapping("/hotel/by/{hotelId}")
+	public Hotel findById(@PathVariable Long hotelId) {
+		return proxy.findAll().stream().filter(id -> id.getHotelId()==hotelId).findAny().get();
+	}
+	
 	@GetMapping("/hotel/name/{hotelName}")
-	public Hotel findByName(@PathVariable String hotelName){
-		return proxy.findAll().stream().filter(name -> name.getHotelName().equals(hotelName)).findAny().get();
+	public List<Hotel> findByName(@PathVariable String hotelName){
+		return proxy.findAll().stream().filter(name -> name.getHotelName().equals(hotelName)).collect(Collectors.toList());
 	}
 	
 	@GetMapping("/hotel/city/{hotelCity}")

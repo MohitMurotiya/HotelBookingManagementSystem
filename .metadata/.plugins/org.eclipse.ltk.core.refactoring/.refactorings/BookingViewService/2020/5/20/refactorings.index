@@ -1,2 +1,4 @@
 1589105675545	Rename package 'com.cg.room.dao'
 1589105693964	Rename type 'RoomRepositoryProxy'
+1589201964972	Rename type 'UserRepository'
+1589202102993	Rename type 'HotelRepository'

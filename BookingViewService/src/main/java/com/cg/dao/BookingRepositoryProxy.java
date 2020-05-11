@@ -11,6 +11,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.cg.model.Booking;
+import com.cg.model.RegistrationModel;
 
 
 

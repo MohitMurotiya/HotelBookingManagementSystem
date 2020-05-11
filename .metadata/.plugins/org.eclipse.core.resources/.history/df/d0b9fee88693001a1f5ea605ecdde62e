@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package com.cg.dao;
+
+
+import java.util.List;
+
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.cg.model.Booking;
+import com.cg.model.RegistrationModel;
+
+
+
+/**
+ * @author HBMS
+ *
+ */
+@FeignClient(name = "BookingManagement, UserViewService")
+@RibbonClient(name = "BookingManagement, UserViewService")
+public interface BookingRepositoryProxy {
+	
+	@GetMapping("/bookings")
+	public List<Booking> findAll();
+	
+	@GetMapping("/users")
+	public List<RegistrationModel> findAllUsers();
+}

@@ -1,12 +1,15 @@
 package com.cg.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
@@ -28,11 +31,12 @@ public class Booking {
 	@Column(name = "userId")
 	private Integer userId;
 
-	@JsonFormat(pattern = "yyyy-MM-dd", shape = Shape.STRING)
+	@JsonFormat(pattern = "dd-MM-yyyy", shape = Shape.STRING)
 	@Column(name = "checkin")
 	private LocalDate checkin;
 
-	@JsonFormat(pattern = "yyyy-MM-dd", shape = Shape.STRING)
+	@JsonFormat(pattern = "dd-MM-yyyy", shape = Shape.STRING)
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@Column(name = "checkout")
 	private LocalDate checkout;
 

@@ -24,6 +24,11 @@ public class UserViewController {
 	public List<RegistrationModel> findAll() {
 		return proxy.findAll();
 	}
+	
+	@GetMapping("/user/by/{userId}")
+	public RegistrationModel findById(@PathVariable Integer userId) {
+		return proxy.findAll().stream().filter(id -> id.getId()==userId).findAny().get();
+	}
 
 	@GetMapping("/users/loginDetails")
 	public List<LoginModel> findAllLoginDetails() {
