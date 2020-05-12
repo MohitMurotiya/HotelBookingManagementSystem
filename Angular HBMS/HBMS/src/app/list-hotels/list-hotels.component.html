@@ -1,0 +1,28 @@
+
+        <!--<thead class="table table-dark">
+            <tr>
+                <th>Hotel Name</th>
+                <th>Rating</th>
+                <th>City</th>
+                <th>Pincode</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Description</th>
+            </tr>
+        </thead>-->
+        <div class="container pt-3">
+            <ng-container *ngFor="let hotel of hotels | async">
+                <div class="jumbotron">
+                    <h2 style="font: size 300%; text-align: center;">{{hotel.hotelName}}</h2><br>
+                    <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
+                    <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
+                    <!--<h5>{{hotel.city}}</h5>
+                    <h5>{{hotel.pincode}}</h5>
+                    <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+                    <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
+                    <div style="text-align: right;">
+                        <button class="btn btn-success" (click)="btnClick(hotel)" >View</button>
+                    </div>
+                </div>
+            </ng-container>
+            </div>

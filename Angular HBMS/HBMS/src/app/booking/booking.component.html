@@ -1,0 +1,17 @@
+
+<form (ngSubmit)="onSubmit()">
+    <label for="checkin"><span class="input-group-text">Check In</span></label>
+    <input type="date" placeholder="CheckIn" class="form-control" id="checkin" [(ngModel)]="booking.checkin" name="checkin" required>
+
+    <label for="checkout"><span class="input-group-text">Check Out</span></label>
+    <input type="date" placeholder="CheckOut" class="form-control" id="checkout" [(ngModel)]="booking.checkout" name="checkout" required>
+    
+    <label for="numOfGuests"><span class="input-group-text">Guests</span></label>
+    <input type="number" placeholder="Enter the number of guests" class="form-control" id="numOfGuests" [(ngModel)]="booking.numOfGuests" name="numOfGuests" required>
+
+    <button type="button" class="btn btn-success" (click)="cal()">Calculate Final Price</button>
+    
+    <label for="finalPrice"><span class="input-group-text">Total Amount: {{this.booking.finalPrice}}</span></label>
+    
+<button type="submit" class="btn btn-success btn-block">Submit</button>
+</form>

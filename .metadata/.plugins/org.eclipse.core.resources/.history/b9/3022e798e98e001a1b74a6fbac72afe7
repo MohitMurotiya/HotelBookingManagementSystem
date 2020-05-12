@@ -1,6 +1,0 @@
-server.port = 8012
-
-spring.application.name=UserUpdateService
-
-eureka.client.serviceUrl.defaultZone=http://localhost:9768/eureka
-

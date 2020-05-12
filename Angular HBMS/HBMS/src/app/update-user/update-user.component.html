@@ -1,0 +1,94 @@
+<div class="container pt-3">
+    <form (ngSubmit)="onRegister()">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="fname"><span class="input-group-text">First Name</span></label>
+            </div>
+            <input type="text" placeholder="Enter your First Name" class="form-control" id="fname" [(ngModel)]="thisCustomer.fname" name="fname" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="lname"><span class="input-group-text">Last Name</span></label>
+            </div>    
+                <input type="text" placeholder="Enter your Last Name" class="form-control" id="lname" [(ngModel)]="thisCustomer.lname" name="lname" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="email"><span class="input-group-text">Email</span></label>
+            </div>
+                <input type="text" placeholder="Enter your email" class="form-control" id="email" [(ngModel)]="thisCustomer.email" name="email" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="number"><span class="input-group-text">Contact</span></label>
+            </div>
+                <input type="text" placeholder="Enter your contact number" class="form-control" id="number" [(ngModel)]="thisCustomer.number" name="number" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="address"><span class="input-group-text">Address</span></label>
+            </div>
+                <input type="text" placeholder="Enter your Address" class="form-control" id="address" [(ngModel)]="thisCustomer.addr.address" name="address" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="city"><span class="input-group-text">City</span></label>
+            </div>
+                <input type="text" placeholder="Enter your City" class="form-control" id="city" [(ngModel)]="thisCustomer.addr.city" name="city" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="state"><span class="input-group-text">State</span></label>
+            </div>
+                <input type="text" placeholder="Enter your state" class="form-control" id="state" [(ngModel)]="thisCustomer.addr.state" name="state" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="zipcode"><span class="input-group-text">Zipcode</span></label>
+            </div>
+                <input type="text" placeholder="Enter your zipcode" class="form-control" id="zipcode" [(ngModel)]="thisCustomer.addr.zipcode" name="zipcode" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="username"><span class="input-group-text">Username</span></label>
+            </div>
+                <input type="text" placeholder="Enter the username" class="form-control" id="username" [(ngModel)]="thisCustomer.user.username" name="username" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="password"><span class="input-group-text">Password</span></label>
+            </div>
+                <input type="password" placeholder="Enter the password" class="form-control" id="password" [(ngModel)]="thisCustomer.user.password" name="username" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="password1"><span class="input-group-text">Re-Enter Password</span></label>
+            </div>
+                <input type="password" placeholder="Re-enter your password" class="form-control" id="password1" name="username" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="role"><span class="input-group-text">Are you a </span></label>
+            </div>
+                <select class="form-control" id="role" [(ngModel)]="thisCustomer.user.role" name="role" required>
+                    <option>customer</option>
+                    <option>employee</option>
+                </select>
+            </div>
+        <div>
+            <button type="submit" class="btn btn-success btn-block">Submit</button>
+        </div>
+    </form>
+    </div>
+    

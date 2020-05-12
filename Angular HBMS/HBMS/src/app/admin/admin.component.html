@@ -1,0 +1,171 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+    <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+    <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav">
+      <!--<li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="fas fa-hotel"></i> HOTELS</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="fas fa-list-ul"></i> EMPLOYEES</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">
+        <i class="fas fa-users"></i> CUSTOMERS</a>
+      </li>-->
+      <li class="nav-item">
+        <a routerLink="/reports" routerLinkActive="active" class="nav-link">
+          <i class="fas fa-chart-bar"></i> REPORTS</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+       <!--<li class="nav-item">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Settings</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem class="dropdown-item fa fa-user"> Profile</button>
+            <button ngbDropdownItem class="dropdown-item fa fa-comments"> Contact us</button>
+          </div>
+        </div>
+      </li>-->
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class=" py-3 text-white" style="background-color: teal">
+  <h1>&nbsp;&nbsp;<i class="fas fa-chart-bar"></i> Admin Dashboard</h1>
+</div>
+<div class="bg-light p-3">
+ 
+<div class="row">
+   <div class="col">
+     <a routerLink="/addHotel" routerLinkActive="active" class="btn btn-primary d-block font-weight-bold rounded">
+      <i class="fas fa-plus"></i> &nbsp;ADD HOTEL</a>
+   </div>
+  <!-- <div class="col-md-4">
+     <a href="" class="btn btn-success d-block font-weight-bold rounded">
+      <i class="fas fa-plus"></i> &nbsp; ADD CATEGORY</a>
+   </div>
+   <div class="col-md-4">
+     <a href="" class="btn btn-warning d-block font-weight-bold rounded">
+      <i class="fas fa-plus"></i> &nbsp;ADD USER</a>
+   </div>-->
+</div>
+</div>
+<!-- dashboard heading ends -->
+<!-- dashboaRd contet start -->
+<div class="container-fluid">
+
+<div class="row"> 
+  <div class="col-8">
+    <h2 style="background-color: purple;" class="text-white p-2 rounded"><i class="fas fa-hotel"></i> &nbsp;LIST OF HOTELS</h2>
+    
+    <div class="container">
+    <!-- creating table -->
+    <table class="table mt-3">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Hotel Name</th>
+          <th>City</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Bhai yha pe sirf ye 3 details baaki details button pe click krke-->
+        <!--<h2 style="font: size 300%; text-align: center;">{{hotel.hotelName}}</h2><br>
+            <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
+            <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
+            <h5>{{hotel.city}}</h5>
+            <h5>{{hotel.pincode}}</h5>
+            <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+            <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
+        
+        <tr *ngFor="let hotel of hotels | async ; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{hotel.hotelName}}</td>
+          <td>{{hotel.city}}</td>
+          <td>{{hotel.rating}}</td>
+          <td><button class="btn btn-outline-secondary btn-sm" (click)="btnClick(hotel)">
+             View <i></i>
+          </button></td>
+        </tr>       
+      </tbody>
+    </table>
+  </div>
+</div>
+  <div class="col-md-4 mt-4">
+      <div class="card">
+        <div class=" bg-primary text-white p-4">
+          <i class="fas fa-list-ul fa-6x"></i>
+          <h2 class="float-right font-weight-bold" style="font-size: 50px; text-align: center;">{{totalHotels}}<span class="d-block">Hotels</span></h2>
+        </div>
+        <div class="card-footer text-primary">
+          <!--<h6 class="text-center"><a href=""> View Details
+          <i class="fas fa-arrow-alt-circle-right"></i></a></h6>-->
+        </div>
+      </div>
+      <!--<div class="card mt-5">
+        <div class=" bg-success text-white p-4 ">
+          <i class="fas fa-list-ul fa-6x"></i>
+          <h2 class="float-right font-weight-bold" style="font-size: 40px; text-align: center;">04 <span class="d-block">Employees</span></h2>
+        </div>
+        <div class="card-footer text-primary">
+          <h6 class="text-center"><a href=""> View Details
+          <i class="fas fa-arrow-alt-circle-right"></i></a></h6>
+        </div>
+      </div>-->
+      <div class="card mt-5">
+        <div class=" bg-warning text-white p-4 ">
+          <i class="fas fa-list-ul fa-6x"></i>
+          <h2 class="float-right font-weight-bold" style="font-size: 50px; text-align: center;">{{totalUsers}} <span class="d-block">Users</span></h2>
+        </div>
+        <div class="card-footer text-warning">
+          <!--<h6 class="text-center"><a href=""> View Details
+          <i class="fas fa-arrow-alt-circle-right"></i></a></h6>-->
+        </div>
+      </div>
+  </div> 
+</div>
+
+
+<!-- footer start -->
+    <footer class="bg-light text-dark p-5 mt-2">
+      <h1 class="text-center">All Right Reserve to HBMS
+        <i class="fab fa-youtube"></i></h1>
+    </footer>
+
+<!--<div class="container">
+  <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif;">{{title}}</h1>
+<div class="row">
+  <div class="col-3">
+      <ul class="nav flex-column">
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/addHotel" routerLinkActive="active">Add Hotel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/reports" routerLinkActive="active">View Reports</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link"routerLink="/login">Logout</a>
+          </li>
+      </ul>
+  </div>-->
+
+<div class="col-8">
+  <router-outlet></router-outlet>
+</div>
+</div>

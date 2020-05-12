@@ -1,0 +1,12 @@
+#menu ul li a:hover{
+	background-color: white;
+	color:black;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px){
+	[class*="col-"]{
+		width: 100%;
+	}
+}

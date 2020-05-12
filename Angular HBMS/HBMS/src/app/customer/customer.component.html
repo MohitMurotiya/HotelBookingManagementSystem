@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="" class="nav-link">
+            <i class="fas fa-hotel"></i> HOTELS</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">
+            <i class="fas fa-utensils"></i> RESTAURANTS</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">
+          <i class="fas fa-users"></i> BOOKING DETAILS</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Settings</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem class="dropdown-item fa fa-user"> Profile</button>
+              <button ngbDropdownItem class="dropdown-item fa fa-comments"> Contact us</button>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!--Slider-->
+  <!--Slider Starts-->
+<ngb-carousel>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="https://images.wallpaperscraft.com/image/hotel_canmore_canada_nature_95946_1024x600.jpg" alt="Random first slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>BOOK NOW TO ENJOY MORE</h3>
+        <p>Welcome summer—the season of renewal—and re-energize by enjoying our hospitality & great offers at LUXURY STAYS</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="https://images.wallpaperscraft.com/image/hotel_canmore_canada_nature_95946_1920x1080.jpg" alt="Random second slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Caring for your Wellbeing</h3>
+        <p>We are taking precautionary measures in an effort to maintain a clean and safe environment for you.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="https://images.wallpaperscraft.com/image/hotel_canmore_canada_nature_95946_1920x1080.jpg" alt="Random third slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  
+
+  <br><br><br>
+  
+  <label>Search Bar will be here</label>
+
+
+
+
+<div class="container-fluid pt-3">
+    <nav class="navbar bg-dark navbar-dark">
+
+    <a class="navbar-brand" href="#">LuxuryStays.com</a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <button class="btn btn-dark" (click)=updateProfile()> Update Profile </button>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" routerLink="/login" style="color: white;">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container pt-3">
+    <div class="input-group mt-3 mb-3">
+      <div class="input-group-prepend">
+        <select class="form-control" id="search" [(ngModel)]="search" name="search" required>
+            <option>Search By Name</option>
+            <option>Search By City</option>
+            <option>Search By Rating</option>
+        </select>
+      </div>
+      <input type="text" class="form-control" id="choice" [(ngModel)]="choice" placeholder="Select the filter from Dropdown" name="choice">
+      <div class="input-group-append">
+        <button class="btn btn-success" (click)=searchHotels()>Search Hotel</button>
+    </div>
+    </div>
+</div>
+
+<div class="container">
+<ng-container *ngFor="let hotel of hotels | async">
+    <div class="jumbotron">
+        <h2 style="font: size 300%; text-align: center;">{{hotel.hotelName}}</h2><br>
+        <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
+        <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
+        <!--<h5>{{hotel.city}}</h5>
+        <h5>{{hotel.pincode}}</h5>
+        <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+        <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
+        <div style="text-align: right;">
+            <button class="btn btn-success" (click)="btnClick(hotel)" >View</button>
+        </div>
+    </div>
+</ng-container>
+</div>
+
+<!--<button (click)=updateProfile()> Update Profile </button>-->

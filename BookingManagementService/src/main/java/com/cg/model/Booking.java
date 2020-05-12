@@ -31,12 +31,12 @@ public class Booking {
 	@Column(name = "userId")
 	private Integer userId;
 
-	@JsonFormat(pattern = "dd-MM-yyyy", shape = Shape.STRING)
+	@JsonFormat(pattern = "yyyy-MM-dd", shape = Shape.STRING)
 	@Column(name = "checkin")
 	private LocalDate checkin;
 
-	@JsonFormat(pattern = "dd-MM-yyyy", shape = Shape.STRING)
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd", shape = Shape.STRING)
+	//@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@Column(name = "checkout")
 	private LocalDate checkout;
 

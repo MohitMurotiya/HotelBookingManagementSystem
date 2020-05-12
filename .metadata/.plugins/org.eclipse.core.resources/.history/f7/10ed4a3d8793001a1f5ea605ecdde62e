@@ -1,5 +1,0 @@
-package com.cg.dao;
-
-public interface UserRepository {
-
-}

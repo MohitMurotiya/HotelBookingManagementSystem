@@ -1,0 +1,57 @@
+
+<div class="container pt-3">
+    <div class="input-group mt-3 mb-3">
+      <div class="input-group-prepend">
+        <input type="date" class="form-control" id="date1" [(ngModel)]="date1" name="date1">
+      </div>
+      <input type="date" class="form-control" id="date2" [(ngModel)]="date2" name="date2">
+      <div class="input-group-append">
+        <button class="btn btn-success" (click)=searchBookings()>Show Bookings</button>
+    </div>
+    </div>
+</div>
+
+<div class="col-8">
+    <div class="container pt-3">
+        <table style="text-align: center;" class="table table-light">
+                <tr class="table table-dark">
+                    <th>Booking Id</th>
+                    <th>User Name</th>
+                    <th>Hotel Name</th>
+                    <th>Room No</th>
+                    <th>Room Type</th>
+                    <th>No. of Guests</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Payments</th>
+                </tr>
+                <tr *ngFor="let booking of bookings | async">
+                    <td>{{booking.bookingId}}</td>
+                    <ng-container *ngFor="let user of users | async">
+                        <td *ngIf="booking.userId == user.id">
+                            {{user.username}}
+                        </td>
+                    </ng-container>
+                    <ng-container *ngFor="let hotel of hotels | async">
+                        <td *ngIf="booking.hotelId == hotel.hotelId">
+                            {{hotel.hotelName}}
+                        </td>
+                    </ng-container>
+                    <ng-container *ngFor="let room of rooms | async ">
+                        <td *ngIf="booking.roomId == room.id">
+                            {{room.roomNo}}
+                        </td>
+                    </ng-container>
+                    <ng-container *ngFor="let room of rooms | async ">
+                        <td *ngIf="booking.roomId == room.id">
+                            {{room.roomType}}
+                        </td>
+                    </ng-container>
+                    <td>{{booking.numOfGuests}}</td>
+                    <td>{{booking.checkin}}</td>
+                    <td>{{booking.checkout}}</td>
+                    <td>{{booking.finalPrice}}</td>
+                </tr>
+        </table>
+    </div>
+</div>

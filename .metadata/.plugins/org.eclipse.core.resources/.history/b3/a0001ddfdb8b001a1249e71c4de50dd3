@@ -1,5 +1,0 @@
-insert into login(id,user_name,password,role) values (10001,'admin','asd','admin');
-insert into login(id,user_name,password,role) values (10002,'emp1','asd','employee');
-insert into login(id,user_name,password,role) values (10003,'emp2','asd','employee');
-insert into login(id,user_name,password,role) values (10004,'cust1','asd','customer');
-insert into login(id,user_name,password,role) values (10005,'cust2','asd','customer');

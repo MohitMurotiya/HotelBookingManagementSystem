@@ -1,0 +1,57 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+<div class="container-fluid pt-3">
+    <nav class="navbar bg-dark navbar-dark">
+
+    <a class="navbar-brand" href="#">LuxuryStays.com</a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Sign Up</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="container pt-3">
+    <div class="jumbotron" style="background-color:lightgoldenrodyellow;">
+        <h3 style="text-align: center; font-family: 'Times New Roman', Times, serif">WELCOME</h3>
+        <h6 style="text-align: center; font-family: 'Times New Roman', Times, serif">IN</h6>
+        <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif">LUXURY STAYS</h1>
+    </div>
+</div>
+<!--<div class="container-fluid">
+    <img src="assets\homepage.jpg" class="rounded" width="1490" height="500">
+</div>-->
+
+<div style="width: 35%;" class="container">
+    <div class="input-group mb-4">
+        <input type="text" class="form-control" placeholder="Enter the City Name" [(ngModel)]="city" name="city">
+        <div class="input-group-append">
+            <button class="btn btn-success" (click)=listHotelsByCity()>Search for Hotel</button>
+        </div>
+      </div>
+</div>
+
+<div class="container">
+<ng-container *ngFor="let hotel of hotels | async">
+    <div class="jumbotron">
+        <h2 style="font: size 300%; text-align: center;">{{hotel.hotelName}}</h2><br>
+        <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
+        <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
+        <!--<h5>{{hotel.city}}</h5>
+        <h5>{{hotel.pincode}}</h5>
+        <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+        <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
+        <div style="text-align: right;">
+            <button class="btn btn-success">View</button>
+        </div>
+    </div>
+</ng-container>
+</div>
+<router-outlet></router-outlet>
