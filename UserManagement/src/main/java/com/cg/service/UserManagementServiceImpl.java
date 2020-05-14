@@ -7,13 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.dao.RegistrationRepository;
+import com.cg.dao.AddressRepository;
 import com.cg.dao.LoginRepository;
 import com.cg.model.RegistrationModel;
+import com.cg.model.Address;
 import com.cg.model.LoginModel;
 
 @Service
 public class UserManagementServiceImpl implements UserManagementService {
 
+	@Autowired
+	private AddressRepository addrRepos;
+	
 	@Autowired
 	private LoginRepository loginrepos;
 
@@ -58,6 +63,12 @@ public class UserManagementServiceImpl implements UserManagementService {
 	public List<LoginModel> findAllLoginDetails() {
 		System.out.println("Inside findAllLoginDetails() method of UserManagementServiceImpl");
 		return loginrepos.findAll();
+	}
+
+	@Override
+	public void updateAddressDetails(Address address) {
+		// TODO Auto-generated method stub
+		addrRepos.save(address);
 	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.cg.model.Address;
 import com.cg.model.LoginModel;
 import com.cg.model.RegistrationModel;
 
@@ -26,4 +27,7 @@ public interface UserRepositoryProxy {
 	
 	@PutMapping("/user/logindetails/update")
 	void updateLoginDetails(@RequestBody LoginModel user);
+	
+	@PutMapping("/user/addressDetails/update")
+	public void updateAddressDetails(@RequestBody Address address);
 }

@@ -13,6 +13,12 @@ import com.cg.dao.UserRepositoryProxy;
 import com.cg.model.LoginModel;
 import com.cg.model.RegistrationModel;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+
+@Api(value = "API exposure UserViewService")
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserViewController {
@@ -21,21 +27,28 @@ public class UserViewController {
 	private UserRepositoryProxy proxy;
 
 	@GetMapping("/users")
+	@ApiOperation(value = "findAllUsers")
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "Success", response = RegistrationModel.class),
+			@ApiResponse(code = 500, message = "Failure", response = RegistrationModel.class) })
 	public List<RegistrationModel> findAll() {
 		return proxy.findAll();
 	}
 	
 	@GetMapping("/user/by/{userId}")
+	@ApiOperation(value = "findUserById")
 	public RegistrationModel findById(@PathVariable Integer userId) {
 		return proxy.findAll().stream().filter(id -> id.getId()==userId).findAny().get();
 	}
 
 	@GetMapping("/users/loginDetails")
+	@ApiOperation(value = "findUserLoginDetails")
 	public List<LoginModel> findAllLoginDetails() {
 		return proxy.findAllLoginDetails();
 	}
 
 	@GetMapping("/users/role/{role}")
+	@ApiOperation(value = "findRoleOfUser")
 	public List<LoginModel> findByRole(@PathVariable String role) {
 		System.out.println("Inside findByRole() method of UserViewController");
 		return proxy.findAllLoginDetails().stream().filter(user -> user.getRole().equals(role))
@@ -43,6 +56,7 @@ public class UserViewController {
 	}
 
 	@GetMapping("/user/username/{username}/password/{password}")
+	@ApiOperation(value = "findUserByUserName")
 	public RegistrationModel findByUserName(@PathVariable String username, @PathVariable String password) {
 
 		RegistrationModel model = proxy.findAll().stream().filter(register -> register.getUser().getUsername().equals(username)).findAny().get();

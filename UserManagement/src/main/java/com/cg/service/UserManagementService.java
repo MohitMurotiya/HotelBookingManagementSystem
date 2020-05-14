@@ -2,6 +2,7 @@ package com.cg.service;
 
 import java.util.List;
 
+import com.cg.model.Address;
 import com.cg.model.LoginModel;
 import com.cg.model.RegistrationModel;
 
@@ -18,6 +19,8 @@ public interface UserManagementService {
 	List<LoginModel> findAllLoginDetails();
 
 	void updateLoginDetails(LoginModel user);
+	
+	void updateAddressDetails(Address address);
 
 	// List<LoginModel> findByRole(String role);
 

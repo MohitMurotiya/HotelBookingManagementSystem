@@ -35,7 +35,9 @@
     </div>
 </div>
 
+
 <div class="container pt-3">
+  <form #viewForm="ngForm" (submit)='searchHotels(viewForm)'>
     <div class="input-group mt-3 mb-3">
       <div class="input-group-prepend">
         <select class="form-control" id="search" [(ngModel)]="search" name="search" required>
@@ -46,9 +48,10 @@
       </div>
       <input type="text" class="form-control" id="choice" [(ngModel)]="choice" placeholder="Select the filter from Dropdown" name="choice">
       <div class="input-group-append">
-        <button class="btn btn-success" (click)=searchHotels()>Search Hotel</button>
+        <button class="btn btn-success">Search Hotel</button>
     </div>
     </div>
+  </form>
 </div>
 
 <div class="container mt-2">
@@ -74,4 +77,5 @@
   </ng-container>
   </div>
 </div>
+
 <router-outlet></router-outlet>

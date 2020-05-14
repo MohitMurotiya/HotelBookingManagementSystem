@@ -36,7 +36,6 @@ public class Booking {
 	private LocalDate checkin;
 
 	@JsonFormat(pattern = "yyyy-MM-dd", shape = Shape.STRING)
-	//@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@Column(name = "checkout")
 	private LocalDate checkout;
 

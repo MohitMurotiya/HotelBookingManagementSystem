@@ -7,6 +7,7 @@ import { CustomerService } from '../customer.service';
 import { Hotel } from '../hotel';
 import { Booking } from '../Booking';
 import { Parser } from '../parser';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class CustomerComponent implements OnInit {
   city: string='';
   hotels: Observable<any>;
   parser: Parser = new Parser();
+  hsize: number;
+  arrayHotels:Hotel[]=[];
   
   constructor(private router:Router, private customerService: CustomerService) { }
 
@@ -39,19 +42,31 @@ export class CustomerComponent implements OnInit {
     this.router.navigateByUrl('/updateUser',{state:this.customer});
   }
 
-  searchHotels() {
-    if(this.search=="Search By Name"){
-      this.listHotelsByName();
-    } else if(this.search=="Search By City"){
-      this.listHotelsByCity();
-    } else if(this.search=="Search By Rating"){
-      this.listHotelsByRating();
+  searchHotels(form:NgForm) {
+    if(form.valid){
+      if(this.search=="Search By Name"){
+        this.listHotelsByName();
+      } else if(this.search=="Search By City"){
+        this.listHotelsByCity();
+      } else if(this.search=="Search By Rating"){
+        this.listHotelsByRating();
+      }
     }
+    
   }
 
   listHotelsByCity() {
-    console.log(this.choice);
-    this.hotels = this.customerService.listHotelsByCity(this.choice);
+      this.customerService.listHotelsByCity(this.choice).subscribe((arrayHotels) => { 
+      this.arrayHotels = arrayHotels;
+      console.log(this.arrayHotels);
+      this.hsize=this.arrayHotels.length
+      if(this.hsize<1)
+      {
+        alert('Either the city entered is invalid or the Hotels are not present of that City!!')     
+      } else {
+        this.hotels=this.customerService.listHotelsByCity(this.choice);
+      }
+    })
   }
 
   listHotelsByName() {

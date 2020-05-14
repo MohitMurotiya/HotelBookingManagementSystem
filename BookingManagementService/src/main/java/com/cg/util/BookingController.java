@@ -34,11 +34,6 @@ public class BookingController {
 		service.addBooking(book);
 	}
 
-	@PutMapping("/booking/update")
-	public void updateBooking(@RequestBody Booking book) {
-		service.updateBooking(book);
-	}
-
 	@GetMapping("/bookings/date/{startDate}/to/{endDate}")
 	public List<Booking> showBookingsByDate(
 			@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,

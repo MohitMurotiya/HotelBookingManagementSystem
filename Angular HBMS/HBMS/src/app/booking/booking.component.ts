@@ -32,6 +32,7 @@ export class BookingComponent implements OnInit {
     var date2 = new Date(this.booking.checkin);
     var diffTime = (date1.getTime() - date2.getTime()); 
     var diffDays = diffTime / (24 * 3600 * 1000);
+    console.log(date1.getTime())
     console.log("Difference="+ diffDays)
     this.day = diffDays;
     console.log("Days="+this.day)

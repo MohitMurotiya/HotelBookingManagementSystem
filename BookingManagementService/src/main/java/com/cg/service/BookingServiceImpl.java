@@ -24,9 +24,4 @@ public class BookingServiceImpl implements BookingSerivce {
 		repos.save(book);
 	}
 
-	@Override
-	public void updateBooking(Booking book) {
-		repos.save(book);
-	}
-
 }

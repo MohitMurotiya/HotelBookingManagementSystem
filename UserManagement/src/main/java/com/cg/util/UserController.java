@@ -16,13 +16,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.model.RegistrationModel;
+import com.cg.model.Address;
 import com.cg.model.LoginModel;
 import com.cg.service.UserManagementService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 /**
  * @author User
  *
  */
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
@@ -53,7 +60,6 @@ public class UserController {
 		service.updateLoginDetails(user);
 	}
 	
-	@GetMapping("/users")
 	public List<RegistrationModel> findAll(){
 		return service.findAll();
 	}
@@ -61,6 +67,11 @@ public class UserController {
 	@GetMapping("/users/loginDetails")
 	public List<LoginModel> findAllLoginDetails(){
 		return service.findAllLoginDetails();
+	}
+	
+	@PutMapping("/user/addressDetails/update")
+	public void updateAddressDetails(@RequestBody Address address) {
+		service.updateAddressDetails(address);
 	}
 }
 
