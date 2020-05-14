@@ -31,6 +31,7 @@ export class AllBookingsComponent implements OnInit {
 
   getAllUsers() {
     this.users = this.adminService.getAllUsers();
+    console.log(this.users);
   }
 
   getAllHotels() {

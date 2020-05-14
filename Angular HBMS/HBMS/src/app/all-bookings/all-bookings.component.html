@@ -1,44 +1,60 @@
-<div class="col-8">
-    <div class="container pt-3">
-        <table style="text-align: center;" class="table table-light">
-                <tr class="table table-dark">
-                    <th>Booking Id</th>
-                    <th>User Name</th>
-                    <th>Hotel Name</th>
-                    <th>Room No</th>
-                    <th>Room Type</th>
-                    <th>No. of Guests</th>
-                    <th>Check In</th>
-                    <th>Check Out</th>
-                    <th>Payments</th>
-                </tr>
-                <tr *ngFor="let booking of bookings | async">
-                    <td>{{booking.bookingId}}</td>
-                    <ng-container *ngFor="let user of users | async">
-                        <td *ngIf="booking.userId == user.id">
-                            {{user.username}}
-                        </td>
-                    </ng-container>
-                    <ng-container *ngFor="let hotel of hotels | async">
-                        <td *ngIf="booking.hotelId == hotel.hotelId">
-                            {{hotel.hotelName}}
-                        </td>
-                    </ng-container>
-                    <ng-container *ngFor="let room of rooms | async ">
-                        <td *ngIf="booking.roomId == room.id">
-                            {{room.roomNo}}
-                        </td>
-                    </ng-container>
-                    <ng-container *ngFor="let room of rooms | async ">
-                        <td *ngIf="booking.roomId == room.id">
-                            {{room.roomType}}
-                        </td>
-                    </ng-container>
-                    <td>{{booking.numOfGuests}}</td>
-                    <td>{{booking.checkin}}</td>
-                    <td>{{booking.checkout}}</td>
-                    <td>{{booking.finalPrice}}</td>
-                </tr>
-        </table>
-    </div>
-</div>
+<h2 style="background-color: purple;" class="text-white p-2 rounded"><i class="fas fa-hotel"></i> &nbsp;All Bookings of LuxuryStays</h2>
+    
+    <div class="container">
+    <!-- creating table -->
+    <table class="table table-bordered">
+      <thead class="table-dark thead-dark">
+        <tr class="table table-dark">
+            <th>#</th>
+            <th>Booking Id</th>
+            <th>User Name</th>
+            <th>Hotel Name</th>
+            <th>Room No</th>
+            <th>Room Type</th>
+            <th>No. of Guests</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Payments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Bhai yha pe sirf ye 3 details baaki details button pe click krke-->
+        <!--<h2 style="font: size 300%; text-align: center;">{{hotel.hotelName}}</h2><br>
+            <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
+            <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
+            <h5>{{hotel.city}}</h5>
+            <h5>{{hotel.pincode}}</h5>
+            <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+            <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
+        
+            <tr *ngFor="let booking of bookings | async; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{booking.bookingId}}</td>
+                <ng-container *ngFor="let user of users | async">
+                    <td *ngIf="booking.userId == user.id">
+                        {{user.username}}
+                    </td>
+                </ng-container>
+                <ng-container *ngFor="let hotel of hotels | async">
+                    <td *ngIf="booking.hotelId == hotel.hotelId">
+                        {{hotel.hotelName}}
+                    </td>
+                </ng-container>
+                <ng-container *ngFor="let room of rooms | async ">
+                    <td *ngIf="booking.roomId == room.id">
+                        {{room.roomNo}}
+                    </td>
+                </ng-container>
+                <ng-container *ngFor="let room of rooms | async ">
+                    <td *ngIf="booking.roomId == room.id">
+                        {{room.roomType}}
+                    </td>
+                </ng-container>
+                <td>{{booking.numOfGuests}}</td>
+                <td>{{booking.checkin}}</td>
+                <td>{{booking.checkout}}</td>
+                <td>{{booking.finalPrice}}</td>
+            </tr>     
+      </tbody>
+    </table>
+  </div>

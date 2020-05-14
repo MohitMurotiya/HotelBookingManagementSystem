@@ -27,6 +27,7 @@ export class AddRoomComponent implements OnInit {
     this.adminService.addRoom(this.room)
       .subscribe(data => console.log(data), error => console.log(error));
     this.room = new Room();
+    alert("Room Added Successfully!!");
     this.router.navigate(["admin"]);
   }
 

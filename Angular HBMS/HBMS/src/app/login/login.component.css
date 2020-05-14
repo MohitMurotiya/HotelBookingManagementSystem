@@ -11,7 +11,7 @@ font-family: 'Numans', sans-serif;
 
 .card{
     float: none;
-height: 400px;
+height: 300px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -19,7 +19,7 @@ background-color: rgba(0,0,0,0.5) !important;
 }
 
 .divheader{
-    height: 120px;
+    height: 10px;
 }
 
 .social_icon span:hover{

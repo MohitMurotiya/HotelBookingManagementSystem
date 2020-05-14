@@ -6,20 +6,20 @@
     </button>
   <div class="collapse navbar-collapse" id="menu">
     <ul class="navbar-nav">
-      <!--<li class="nav-item">
-        <a href="" class="nav-link">
+      <li class="nav-item">
+        <a routerLink="/admin" routerLinkActive="active" class="nav-link">
           <i class="fas fa-hotel"></i> HOTELS</a>
       </li>
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a href="" class="nav-link">
           <i class="fas fa-list-ul"></i> EMPLOYEES</a>
       </li>
       <li class="nav-item">
-        <a href="" class="nav-link">
+        <a routerLink="/admin" routerLinkActive="active" class="nav-link">
         <i class="fas fa-users"></i> CUSTOMERS</a>
       </li>-->
       <li class="nav-item">
-        <a routerLink="/reports" routerLinkActive="active" class="nav-link">
+        <a class="nav-link">
           <i class="fas fa-chart-bar"></i> REPORTS</a>
       </li>
     </ul>
@@ -34,7 +34,7 @@
         </div>
       </li>-->
       <li class="nav-item">
-        <a href="" class="nav-link">
+        <a routerLink="/login" routerLinkActive="active" class="nav-link">
           <i class="fas fa-sign-out-alt"></i> Logout</a>
       </li>
     </ul>
@@ -44,27 +44,28 @@
 <div class=" py-3 text-white" style="background-color: teal">
   <h1>&nbsp;&nbsp;<i class="fas fa-chart-bar"></i> Admin Dashboard</h1>
 </div>
+<div class="bg-light p-3">
+ 
+<div class="row">
+   <div class="col-md-6">
+     <a  routerLink="allBookings" routerLinkActive="active" class="btn btn-primary d-block font-weight-bold rounded">
+      <i class="fas fa-chart-line"></i> &nbsp;All Bookings</a>
+   </div>
+  <div class="col-md-6">
+     <a routerLink="bookingsBetnDates" routerLinkActive="active" class="btn btn-success d-block font-weight-bold rounded">
+      <i class="fas fa-calendar"></i> &nbsp; Bookings By Dates</a>
+   </div>
+   <!-- <div class="col-md-4">
+     <a href="" class="btn btn-warning d-block font-weight-bold rounded">
+      <i class="fas fa-plus"></i> &nbsp;ADD USER</a>
+   </div>-->
+</div>
+</div>
+<!-- dashboard heading ends -->
+<!-- dashboaRd contet start -->
+<div class="container-fluid">
 
-<div class="container pt-3">
-    <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif;">{{title}}</h1>
-  <div class="row">
-    <div class="col-3">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" routerLink="allBookings" routerLinkActive="active">All Bookings</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" routerLink="bookingsBetnDates" routerLinkActive="active">Bookings between Dates</a>
-              </li>
-            <li class="nav-item">
-                <a class="nav-link"routerLink="/login">Logout</a>
-            </li>
-        </ul>
-    </div>
-  
-  <div class="col-8">
+<div class="container"> 
+  <!--<div class="col-8">-->
     <router-outlet></router-outlet>
-  </div>
-  </div>
 </div>

@@ -21,6 +21,7 @@ export class AddHotelComponent implements OnInit {
     this.adminService.addHotel(this.hotel)
       .subscribe(data => console.log(data), error => console.log(error));
     this.hotel = new Hotel();
+    alert("Hotel Added Successfully!!");
     this.router.navigate(["admin"]);
   }
 

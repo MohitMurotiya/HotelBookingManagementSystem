@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RegisterUser } from '../register';
 import { LoginService } from '../login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-user',
@@ -13,7 +14,7 @@ export class UpdateUserComponent implements OnInit {
 
   //@Input() thisCustomer: RegisterUser;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private route:Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.thisCustomer=history.state;
@@ -23,6 +24,8 @@ export class UpdateUserComponent implements OnInit {
   onRegister() {
     this.loginService.updateUser(this.thisCustomer)
     .subscribe(data => console.log(data), error => console.log(error));
+    alert("You have Updated your profile successfully!!");
+    this.route.navigate(['login']);
   }
 
 }

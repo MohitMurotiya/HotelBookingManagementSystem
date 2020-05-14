@@ -4,21 +4,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
 
-<div class="container-fluid pt-3">
-    <nav class="navbar bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand text-warning">&nbsp;&nbsp;
+      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a routerLink="/login" routerLinkActive="active" class="nav-link">
+            <i class="fas fa-sign-in-alt"></i> Log In</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+            <a routerLink="/register" routerLinkActive="active" class="nav-link">
+              <i class="fas fa-user-plus"></i> Sign Up</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </ul>
+    </div>
+  </nav>
+  
 
-    <a class="navbar-brand" href="#">LuxuryStays.com</a>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Login</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Sign Up</a>
-            </li>
-        </ul>
-    </nav>
-</div>
-<div class="container pt-3">
+
+<div class="container-fluid pt-3">
     <div class="jumbotron" style="background-color:lightgoldenrodyellow;">
         <h3 style="text-align: center; font-family: 'Times New Roman', Times, serif">WELCOME</h3>
         <h6 style="text-align: center; font-family: 'Times New Roman', Times, serif">IN</h6>
@@ -29,29 +37,38 @@
     <img src="assets\homepage.jpg" class="rounded" width="1490" height="500">
 </div>-->
 
-<div style="width: 35%;" class="container">
+<div style="width: 45%;" class="container">
+    <form #viewForm="ngForm" (submit)='listHotelsByCity(viewForm)'>
     <div class="input-group mb-4">
         <input type="text" class="form-control" placeholder="Enter the City Name" [(ngModel)]="city" name="city">
         <div class="input-group-append">
-            <button class="btn btn-success" (click)=listHotelsByCity()>Search for Hotel</button>
-        </div>
-      </div>
-</div>
-
-<div class="container">
-<ng-container *ngFor="let hotel of hotels | async">
-    <div class="jumbotron">
-        <h2 style="font: size 300%; text-align: center;">{{hotel.hotelName}}</h2><br>
-        <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
-        <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
-        <!--<h5>{{hotel.city}}</h5>
-        <h5>{{hotel.pincode}}</h5>
-        <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
-        <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
-        <div style="text-align: right;">
-            <button class="btn btn-success">View</button>
+            <button type="submit" class="btn btn-success" >Search for Hotel</button>
         </div>
     </div>
-</ng-container>
+</form>
 </div>
+
+<div class="container mt-2">
+    <div class="form-group">
+      <ng-container *ngFor="let hotel of hotels | async">
+        <div class="container pt-3">
+      <div class="col-md-12">
+        <div class="card item-card card-block">
+            <br>
+          <h2 style="font: size 300%; font-family: 'Times New Roman', Times, serif; text-align: center;">{{hotel.hotelName}}</h2><br>
+          <h4 style="text-align: right; font-family: 'Times New Roman', Times, serif;">Hotel Description: {{hotel.description}}&nbsp;&nbsp;&nbsp;&nbsp;</h4><br>
+          <h5 style="text-align: right; font-family: 'Times New Roman', Times, serif;">Hotel Rating: {{hotel.rating}}&nbsp;&nbsp;&nbsp;&nbsp;</h5><br>
+          <!--<h5>{{hotel.city}}</h5>
+          <h5>{{hotel.pincode}}</h5>
+          <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+          <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
+          <div class="container" style="text-align: right;">
+              <button class="btn btn-primary btn-block" (click)="btnClick(hotel)" >View</button><br>
+          </div> 
+        </div>
+      </div>
+    </div>
+    </ng-container>
+    </div>
+  </div>
 <router-outlet></router-outlet>

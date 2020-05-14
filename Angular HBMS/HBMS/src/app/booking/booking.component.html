@@ -1,17 +1,30 @@
-
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  </nav>
+    <h2 style="background-color: cornflowerblue; text-align: center;" class="text-white p-2 rounded"><i class="fas fa-sign-in"></i> &nbsp;Book Room</h2>
+    
+<div class="row">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-md-8">
 <form (ngSubmit)="onSubmit()">
-    <label for="checkin"><span class="input-group-text">Check In</span></label>
+    Check In
     <input type="date" placeholder="CheckIn" class="form-control" id="checkin" [(ngModel)]="booking.checkin" name="checkin" required>
-
-    <label for="checkout"><span class="input-group-text">Check Out</span></label>
+<hr>
+    Check Out
     <input type="date" placeholder="CheckOut" class="form-control" id="checkout" [(ngModel)]="booking.checkout" name="checkout" required>
-    
-    <label for="numOfGuests"><span class="input-group-text">Guests</span></label>
-    <input type="number" placeholder="Enter the number of guests" class="form-control" id="numOfGuests" [(ngModel)]="booking.numOfGuests" name="numOfGuests" required>
+    <hr>
+    Guests
+    <input type="number" placeholder="Enter the number of guests" class="form-control" id="numOfGuests" [(ngModel)]="booking.numOfGuests" name="numOfGuests" required> <hr><br>
 
-    <button type="button" class="btn btn-success" (click)="cal()">Calculate Final Price</button>
-    
-    <label for="finalPrice"><span class="input-group-text">Total Amount: {{this.booking.finalPrice}}</span></label>
+    <button type="button" class="btn btn-success" (click)="cal()"> Calculate Total Ammount:</button>
+    &nbsp;&nbsp;&nbsp;{{this.booking.finalPrice}}<br>
+    <hr><br>
     
 <button type="submit" class="btn btn-success btn-block">Submit</button>
 </form>
+</div>
+</div>

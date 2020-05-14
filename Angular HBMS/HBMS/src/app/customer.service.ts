@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Booking } from './Booking';
 import { Room } from './room';
+import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class CustomerService {
   }
 
   bookRoom(booking: Booking): Observable<any> {
-    return this.http.post('http://localhost:8003/booking/add' ,booking);
+    return this.http.post('http://localhost:8032/booking/add' ,booking);
   }
 
   updateRoom(room: Room): Observable<any> {

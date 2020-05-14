@@ -22,6 +22,7 @@ export class UpdateHotelComponent implements OnInit {
   updateHotel() {
     this.adminService.updateHotel(this.hotel)
     .subscribe(data => console.log(data), error => console.log(error));
+    alert("Hotel Updated Successfully!!");
     this.router.navigate(["admin"]);
   }
 }

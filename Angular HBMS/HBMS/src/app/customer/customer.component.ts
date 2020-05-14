@@ -29,6 +29,7 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(history.state)
+    this.customer = history.state;
     this.listHotels();
   }
 

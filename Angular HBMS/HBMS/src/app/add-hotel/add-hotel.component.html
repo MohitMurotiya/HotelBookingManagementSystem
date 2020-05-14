@@ -1,90 +1,138 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
-      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
-      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav">
-        <!--<li class="nav-item">
-          <a href="" class="nav-link">
-            <i class="fas fa-hotel"></i> HOTELS</a>
-        </li>
-        <li class="nav-item">
-          <a href="" class="nav-link">
-            <i class="fas fa-list-ul"></i> EMPLOYEES</a>
-        </li>
-        <li class="nav-item">
-          <a href="" class="nav-link">
-          <i class="fas fa-users"></i> CUSTOMERS</a>
-        </li>-->
-        <li class="nav-item">
-          <a routerLink="/reports" routerLinkActive="active" class="nav-link">
-            <i class="fas fa-chart-bar"></i> REPORTS</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-         <!--<li class="nav-item">
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Settings</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem class="dropdown-item fa fa-user"> Profile</button>
-              <button ngbDropdownItem class="dropdown-item fa fa-comments"> Contact us</button>
-            </div>
+  <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+    <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+    <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link">
+          <i routerLink="/admin" routerLinkActive="active" class="fas fa-hotel"></i> HOTELS</a>
+      </li>
+      <!--<li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="fas fa-list-ul"></i> EMPLOYEES</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/admin" routerLinkActive="active" class="nav-link">
+        <i class="fas fa-users"></i> CUSTOMERS</a>
+      </li>-->
+      <li class="nav-item">
+        <a routerLink="/reports" routerLinkActive="active" class="nav-link">
+          <i class="fas fa-chart-bar"></i> REPORTS</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+       <!--<li class="nav-item">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Settings</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem class="dropdown-item fa fa-user"> Profile</button>
+            <button ngbDropdownItem class="dropdown-item fa fa-comments"> Contact us</button>
           </div>
-        </li>-->
-        <li class="nav-item">
-          <a href="" class="nav-link">
-            <i class="fas fa-sign-out-alt"></i> Logout</a>
-        </li>
-      </ul>
+        </div>
+      </li>-->
+      <li class="nav-item">
+        <a routerLink="/login" routerLinkActive="active" class="nav-link">
+          <i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class=" py-3 text-white" style="background-color: teal">
+  <h1>&nbsp;&nbsp;<i class="fas fa-chart-bar"></i> Admin Dashboard</h1>
+</div>
+<br><br>
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit()" >
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label>Hotel Name</label>
+        <input type="text" name="fname" class="form-control" [(ngModel)]="hotel.hotelName" #hname="ngModel"
+          [ngClass]="{ 'is-invalid': userForm.submitted && hname.invalid }" required>
+          <div class="invalid-feedback" *ngIf="userForm.submitted && hname.invalid">
+            <p *ngIf="hname.errors.required">Name is required</p>
+          </div>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label>Rating</label>
+        <input type="number" name="rating" class="form-control" [(ngModel)]="hotel.rating" #rating="ngModel"
+          [ngClass]="{ 'is-invalid': userForm.submitted && rating.invalid }" pattern="[1-5]{1}" required>
+            <div class="invalid-feedback" *ngIf="userForm.submitted && rating.invalid">
+              <div *ngIf="rating.errors.required">Required</div>
+              <div *ngIf="rating.errors.pattern">Between 1-5</div>
+            </div>
+        </div>
     </div>
-  </nav>
   
-  <div class=" py-3 text-white" style="background-color: teal">
-    <h1>&nbsp;&nbsp;<i class="fas fa-chart-bar"></i> Admin Dashboard</h1>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label>City</label>
+      <input type="text" class="form-control" name="city" [(ngModel)]="hotel.city" #city="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && city.invalid }" required>
+      <div *ngIf="userForm.submitted && city.invalid" class="invalid-feedback">
+        <div *ngIf="city.errors.required">City is required</div>
+      </div>
+    </div>
+    <div class="col-md-2 mb-3">
+      <label>Zipcode</label>
+      <input type="number" class="form-control" name="zipcode" [(ngModel)]="hotel.pincode" #zipcode="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && zipcode.invalid }" pattern="[0-9]{6}" required>
+      <div *ngIf="userForm.submitted && zipcode.invalid" class="invalid-feedback">
+        <div *ngIf="zipcode.errors.required">Zipcode is required</div>
+        <div *ngIf="zipcode.errors.pattern">Must be of 6 characters</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="hotel.email" #email="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }" required>
+      <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">Must be a valid email address</div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>Contact Number</label>
+      <input type="number" class="form-control" name="contact" [(ngModel)]="hotel.contact" #contact="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && contact.invalid }" pattern="[0-9]{10}" required>
+      <div *ngIf="userForm.submitted && contact.invalid" class="invalid-feedback">
+        <div *ngIf="contact.errors.required">Mobile Number is required.</div>
+        <div *ngIf="contact.errors.pattern">Must be of 10 digits</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-8 mb-3">
+      <label>Description</label>
+      <input type="text" class="form-control" name="description" [(ngModel)]="hotel.description" #description="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && description.invalid }" maxlength="10" required>
+      <div *ngIf="userForm.submitted && description.invalid" class="invalid-feedback">
+        <div *ngIf="description.errors.required">Description is required</div>
+        <div *ngIf="description.errors.maxlength">At most 10 characters long</div>
+      </div>
+    </div>
   </div>
 
-<form (ngSubmit)="onSubmit()">
-        <label for="hotelName"><span class="input-group-text">Hotel Name</span></label>
-        <input type="text" placeholder="Enter the Name of the hotel here" class="form-control" id="hotelName" [(ngModel)]="hotel.hotelName" name="hotelName" required>
+  <!--<div class="form-group">
+    <label>Hobbies</label>
+    <select class="form-control" name="hobbies" [(ngModel)]="Hobbies">
+      <option value="">Select an option</option>
+      <option *ngFor="let hoby of Hobbies" [value]="hoby">
+        {{hoby}}
+      </option>
+    </select>
+  </div>-->
 
-        <label for="rating"><span class="input-group-text">Rating</span></label>
-        <input type="text" placeholder="Enter the Rating of the hotel here" class="form-control" id="hotelName" [(ngModel)]="hotel.rating" name="rating" required>
-        
-        <label for="city"><span class="input-group-text">City</span></label>
-        <input type="text" placeholder="Enter the City of the hotel here" class="form-control" id="city" [(ngModel)]="hotel.city" name="city" required>
-
-        <label for="pincode"><span class="input-group-text">Pincode</span></label>
-        <input type="text" placeholder="Enter the pincode of the hotel here" class="form-control" id="pincode" [(ngModel)]="hotel.pincode" name="pincode" required>
-
-        <label for="contact"><span class="input-group-text">Contact</span></label>
-        <input type="text" placeholder="Enter the contact of the hotel here" class="form-control" id="contact" [(ngModel)]="hotel.contact" name="contact" required>
-
-        <label for="email"><span class="input-group-text">Email</span></label>
-        <input type="text" placeholder="Enter the email of the hotel here" class="form-control" id="email" [(ngModel)]="hotel.email" name="email" required>
-
-        <label for="description"><span class="input-group-text">Description</span></label>
-        <input type="text" placeholder="Enter the description of Hotel here" class="form-control" id="description" [(ngModel)]="hotel.description" name="description" required>
-
-        <!--Room Details:
-
-        <label for="roomNo"><span class="input-group-text">Room No </span></label>
-        <input type="text" placeholder="Enter the Room No of Hotel here" class="form-control" id="roomNo" [(ngModel)]="hotel.room.roomNo" name="roomNo" required>
-
-        <label for="roomType"><span class="input-group-text">Room No </span></label>
-        <input type="text" placeholder="Enter the Room Type here" class="form-control" id="roomType" [(ngModel)]="hotel.room.roomType" name="roomType" required>
-
-        <label for="price"><span class="input-group-text">Rent Amount </span></label>
-        <input type="text" placeholder="Enter the rent of Room here" class="form-control" id="price" [(ngModel)]="hotel.room.price" name="price" required>
-
-        <label for="availability"><span class="input-group-text">Availability </span></label>
-    <div>
-        <select class="form-control" id="availability" [(ngModel)]="hotel.room.availability" name="availability" required>
-            <option>true</option>
-            <option>false</option>
-        </select>
-    </div>-->
-        
-    <button type="submit" class="btn btn-success btn-block">Submit</button>
+  <div class="form-row col-md-2">
+      <button class="btn btn-primary btn-block">Submit</button>
+  </div>
 </form>
+
+<hr>
+<br><br><br>
+

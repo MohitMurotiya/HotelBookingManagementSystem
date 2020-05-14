@@ -1,101 +1,129 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+    <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+    <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+      <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
 
 <div class="container pt-3">
-<form #custform = "ngForm" #f="ngForm" (ngSubmit)="onRegister()">
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="fname"><span class="input-group-text">First Name</span></label>
+  <h2 style="background-color: cornflowerblue; text-align: center;" class="text-white p-2 rounded"><i class="fas fa-user-alt"></i> &nbsp;User Registration</h2>
+  </div>
+  <br><br>
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onRegister()" >
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>First Name</label>
+          <input type="text" name="fname" class="form-control" [(ngModel)]="registerUser.fname" #fname="ngModel"
+            [ngClass]="{ 'is-invalid': userForm.submitted && fname.invalid }" required>
+            <div class="invalid-feedback" *ngIf="userForm.submitted && fname.invalid">
+              <p *ngIf="fname.errors.required">Name is required</p>
+            </div>
         </div>
-        <input type="text" placeholder="Enter your First Name" class="form-control" required minlength="4" #fname="ngModel" id="fname" [(ngModel)]="registerUser.fname" name="fname">
-        <div class="alert alert-danger" *ngIf="fname.errors.required">
-            <span [ngStyle]="{'color':'red'}"> Please Enter Some Data</span>
-        </div>
+        <div class="col-md-4 mb-3">
+          <label>Last Name</label>
+          <input type="text" name="lname" class="form-control" [(ngModel)]="registerUser.lname" #lname="ngModel"
+            [ngClass]="{ 'is-invalid': userForm.submitted && lname.invalid }" required>
+              <div class="invalid-feedback" *ngIf="userForm.submitted && lname.invalid">
+                <p *ngIf="lname.errors.required">Name is required</p>
+              </div>
+          </div>
+      </div>
     
-        <div class="alert alert-danger" *ngIf="fname.errors.minlength">
-            <span [ngStyle]="{'color':'red'}"> Please Enter min 4 Length</span>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="registerUser.email" #email="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }" required>
+        <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">Must be a valid email address</div>
         </div>
-    </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="lname"><span class="input-group-text">Last Name</span></label>
-        </div>    
-            <input type="text" placeholder="Enter your Last Name" class="form-control" id="lname" [(ngModel)]="registerUser.lname" name="lname" required>
-    </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="email"><span class="input-group-text">Email</span></label>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Contact Number</label>
+        <input type="number" class="form-control" name="contact" [(ngModel)]="registerUser.number" #contact="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && contact.invalid }" required>
+        <div *ngIf="userForm.submitted && contact.invalid" class="invalid-feedback">
         </div>
-            <input type="text" placeholder="Enter your email" class="form-control" id="email" [(ngModel)]="registerUser.email" name="email" required>
+      </div>
     </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="number"><span class="input-group-text">Contact</span></label>
+    
+    <div class="form-row">
+      <div class="col-md-2 mb-3">
+        <label>Address</label>
+        <input type="text" class="form-control" name="address" [(ngModel)]="registerUser.addr.address" #address="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && address.invalid }" required>
+        <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="address.errors.required">Address is required</div>
         </div>
-            <input type="text" placeholder="Enter your contact number" class="form-control" id="number" [(ngModel)]="registerUser.number" name="number" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label>City</label>
+        <input type="text" class="form-control" name="city" [(ngModel)]="registerUser.addr.city" #city="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && city.invalid }" required>
+        <div *ngIf="userForm.submitted && city.invalid" class="invalid-feedback">
+          <div *ngIf="city.errors.required">City is required</div>
+        </div>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label>State</label>
+        <input type="text" class="form-control" name="state" [(ngModel)]="registerUser.addr.state" #state="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && state.invalid }" required>
+        <div *ngIf="userForm.submitted && state.invalid" class="invalid-feedback">
+          <div *ngIf="state.errors.required">State is required</div>
+        </div>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label>Zipcode</label>
+        <input type="number" class="form-control" name="zipcode" [(ngModel)]="registerUser.addr.zipcode" #zipcode="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && zipcode.invalid }" pattern="[0-9]{6}"  required>
+       <div *ngIf="userForm.submitted && zipcode.invalid" class="invalid-feedback">
+          <div *ngIf="zipcode.errors.required">Zipcode is required</div>
+          <div *ngIf="zipcode.errors.pattern">Must be of 6 characters</div>
+        </div>
+      </div>
     </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="address"><span class="input-group-text">Address</span></label>
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label>Username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="registerUser.user.username" #username="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && username.invalid }" minlength="4" required>
+        <div *ngIf="userForm.submitted && username.invalid" class="invalid-feedback">
+          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.minlength">Username should be at least 4 characters long</div>
         </div>
-            <input type="text" placeholder="Enter your Address" class="form-control" id="address" [(ngModel)]="registerUser.addr.address" name="address" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="registerUser.user.password" #password="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && password.invalid }" minlength="8" required>
+       <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password should be at least 8 characters long</div>
+        </div>
+      </div>
     </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="city"><span class="input-group-text">City</span></label>
-        </div>
-            <input type="text" placeholder="Enter your City" class="form-control" id="city" [(ngModel)]="registerUser.addr.city" name="city" required>
+  
+    <!--<div class="form-group">
+      <label>Hobbies</label>
+      <select class="form-control" name="hobbies" [(ngModel)]="Hobbies">
+        <option value="">Select an option</option>
+        <option *ngFor="let hoby of Hobbies" [value]="hoby">
+          {{hoby}}
+        </option>
+      </select>
+    </div>-->
+  
+    <div class="form-row col-md-2">
+        <button type="submit" class="btn btn-danger btn-block">Submit</button>
     </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="state"><span class="input-group-text">State</span></label>
-        </div>
-            <input type="text" placeholder="Enter your state" class="form-control" id="state" [(ngModel)]="registerUser.addr.state" name="state" required>
-    </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="zipcode"><span class="input-group-text">Zipcode</span></label>
-        </div>
-            <input type="text" placeholder="Enter your zipcode" class="form-control" id="zipcode" [(ngModel)]="registerUser.addr.zipcode" name="zipcode" required>
-    </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="username"><span class="input-group-text">Username</span></label>
-        </div>
-            <input type="text" placeholder="Enter the username" class="form-control" id="username" [(ngModel)]="registerUser.user.username" name="username" required>
-    </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="password"><span class="input-group-text">Password</span></label>
-        </div>
-            <input type="password" placeholder="Enter the password" class="form-control" id="password" [(ngModel)]="registerUser.user.password" name="username" required>
-    </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="password1"><span class="input-group-text">Re-Enter Password</span></label>
-        </div>
-            <input type="password" placeholder="Re-enter your password" class="form-control" id="password1" name="username" required>
-    </div>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label for="role"><span class="input-group-text">Are you a </span></label>
-        </div>
-            <select class="form-control" id="role" [(ngModel)]="registerUser.user.role" name="role" required>
-                <option>customer</option>
-                <option>employee</option>
-            </select>
-        </div>
-    <div>
-        <button type="submit" class="btn btn-success btn-block">Submit</button>
-    </div>
-</form>
-</div>
+  </form>
+
+  <hr>
+  <br><br><br>
+
+
+
+

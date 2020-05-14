@@ -1,19 +1,14 @@
-<head>
-	<title>Login Page</title>
-   <!--Made with love by Mutiullah Samim -->
-   
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-    <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-	<!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  </nav>
+  
+    <h2 style="background-color: cornflowerblue; text-align: center;" class="text-white p-2 rounded"><i class="fas fa-sign-in"></i> &nbsp;Log In</h2>
   
   <!-- User Name : <input type="text" name="username" [(ngModel)]="username">
     Password : <input type="password" name="password" [(ngModel)]="password">
@@ -24,16 +19,9 @@
     <div class="container pt-3">
         <div class="d-flex justify-content-center h-100">
             <div class="card">
-                <div class="card-header">
-                    <h3>Log In</h3>
-                    <div class="d-flex justify-content-end social_icon">
-                        <span><i class="fab fa-facebook-square"></i></span>
-                        <span><i class="fab fa-google-plus-square"></i></span>
-                        <span><i class="fab fa-twitter-square"></i></span>
-                    </div>
-                </div>
                 <div class="card-body">
                     <form>
+                        <br>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -46,9 +34,6 @@
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" class="form-control" placeholder="password" [(ngModel)]="password" name="password">
-                        </div>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox">Remember Me
                         </div>
                         <div class="form-group">
                             <button (click)=checkLogin() value="Login" class="btn float-right login_btn">LogIn</button>

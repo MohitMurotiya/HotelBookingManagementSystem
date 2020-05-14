@@ -30,11 +30,13 @@ export class HotelComponent implements OnInit {
   }
 
   deleteHotel() {
-    let hotelId:number = this.hotel.hotelId;
-    console.log("inside delete Hotel "+ hotelId);
-    this.adminService.deleteHotel(hotelId).subscribe(data => {
-      console.log(data);
-    });
+    if(confirm("Are you sure to delete "+this.hotel.hotelName)) {
+      let hotelId:number = this.hotel.hotelId;
+      console.log("inside delete Hotel "+ hotelId);
+      this.adminService.deleteHotel(hotelId).subscribe(data => {
+        console.log(data);
+      });
+    }
     this.router.navigate(["admin"]);
   }
 
@@ -49,11 +51,13 @@ export class HotelComponent implements OnInit {
   }
 
   deleteRoom(roomId) {
-    console.log("inside delete Hotel "+ roomId);
+    if(confirm("Are you sure to Remove this Room??")) {
+      console.log("inside delete Hotel "+ roomId);
     this.adminService.deleteRoom(roomId).subscribe(data => {
       console.log(data);
     });
     this.rooms = this.adminService.showRooms(this.hotel.hotelId);
+    }
   }
 
   hotelBookings() {

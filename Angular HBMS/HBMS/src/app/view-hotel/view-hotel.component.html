@@ -1,53 +1,66 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-        <a class="navbar-brand" href="#">LuxuryStays.com</a>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"routerLink="/login">Logout</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="menu">
+     
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp; Logout</a>
+        </li>
+      </ul>
     </div>
-  
-  <div class="col-8">
-    <router-outlet></router-outlet>
-  </div>
-  </div>
-<div class="container pt-3">
-    <form>
-    <div class="jumbotron">
-        <h1 style="font-size: 400%; text-align: center;">{{hotel.hotelName}}</h1><br>
-        <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
-        <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
-        <h5 style="text-align: right;">City: {{hotel.city}}</h5>
-        <h5 style="text-align: right;">Zip Code: {{hotel.pincode}}</h5>
-        <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
-        <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>
-        <div style="text-align: right;">
-            <button class="btn btn-success" (click)= "showRooms()" id="showRooms">Show Rooms</button>
-        </div>
-    </div>
-</form>
-</div>
+  </nav>
 
-<div class="container" id="hotelRooms">
-    <table style="text-align: center;" class="table table-striped table-bordered">
-            <tr>
-                <td><b>Room ID</b></td>
-                <td><b>Room No</b></td>
-                <td><b>Price</b></td>
-                <td><b>Room Type</b></td>
-                <td></td>
+  
+        <router-outlet></router-outlet>
+    <div class="container pt-3">
+        <form>
+        <div class="jumbotron">
+            <h1 style="font-size: 400%; text-align: center;">{{hotel.hotelName}}</h1><br>
+            <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
+            <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
+            <h5 style="text-align: right;">City: {{hotel.city}}</h5>
+            <h5 style="text-align: right;">Zip Code: {{hotel.pincode}}</h5>
+            <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+            <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>
+        </div>
+    </form>
+    </div>
+    <div class="container pt-3">
+        <div class="row">
+         <div class="col-md-12">
+          <button (click)= "showRooms()" id="showRooms" class="btn btn-info btn-block font-weight-bold rounded">
+             <i class="fas fa-door-open"></i> &nbsp; Show Rooms</button>
+          </div>
+        </div>
+          <!-- <div class="col-md-4">
+            <a href="" class="btn btn-warning d-block font-weight-bold rounded">
+             <i class="fas fa-plus"></i> &nbsp;ADD USER</a>
+          </div>-->
+        </div><br><br>
+    
+    <div class="container" id="hotelRooms">  
+        <table style="text-align: center;" class="table table-striped table-bordered">
+            <tr class="table thead-dark">
+                <th>#</th>
+                <th>Room ID</th>
+                <th>Room No</th>
+                <th>Price</th>
+                <th>Room Type</th>
+                <th></th>
             </tr>
-            <tr *ngFor="let room of rooms | async" >
-                <td>{{room.id}}</td>
-                <td>{{room.roomNo}}</td>
-                <td>{{room.price}}</td>
-                <td>{{room.roomType}}</td>
-                <td><button class="btn btn-success" (click)= "bookRoom(room)">Book Room</button></td>
-            </tr>
-    </table>
-</div>
+                <tr *ngFor="let room of rooms | async ; let i = index" >
+                    <td>{{i+1}}</td>
+                    <td>{{room.id}}</td>
+                    <td>{{room.roomNo}}</td>
+                    <td>{{room.price}}</td>
+                    <td>{{room.roomType}}</td>
+                    <td><button class="btn btn-success" (click)= "bookRoom(room)">
+                      <i class="fas fa-ticket-alt"></i> &nbsp;Book Room></button></td>
+                </tr>
+        </table>
+    </div>

@@ -58,7 +58,8 @@ import { CommonModule } from '@angular/common';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [LoginService, AdminService, CustomerService],
   bootstrap: [AppComponent]
