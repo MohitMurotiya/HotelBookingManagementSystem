@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav">
+        <!--<li class="nav-item">
+          <a class="nav-link">
+            <i class="fas fa-hotel"></i> HOTELS</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">
+            <i class="fas fa-list-ul"></i> EMPLOYEES</a>
+        </li>-->
+        <li class="nav-item">
+          <button class="btn btn-dark btn-block font-weight-bold rounded nav-link" (click)="homePage()">
+          <i class="fas fa-home"></i> Home</button>
+        </li>
+        &nbsp;&nbsp;
+        <li>
+          <button class="btn btn-dark btn-block font-weight-bold rounded nav-link">
+               <i class="fas fa-history"></i> My History</button>
+           </li>
+      </ul>
+     
+      <ul class="navbar-nav ml-auto">
+        
+         <li class="nav-item">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Settings</button>&nbsp;&nbsp;&nbsp;
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem class="dropdown-item fa fa-user" (click)="updateProfile()">Update Profile</button>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp; Logged in as {{this.user.user.username}}</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp; Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<h2 style="background-color: purple;" class="text-white p-2 rounded"><i class="fas fa-hotel"></i> &nbsp;My Booking History</h2>
+    
+    <div class="container">
+    <!-- creating table -->
+    <table class="table table-bordered">
+      <thead class="table-dark thead-dark">
+        <tr class="table table-dark">
+            <th>#</th>
+            <th>Hotel Name</th>
+            <th>Room No</th>
+            <th>Room Type</th>
+            <th>No. of Guests</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Payments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Bhai yha pe sirf ye 3 details baaki details button pe click krke-->
+        <!--<h2 style="font: size 300%; text-align: center;">{{hotel.hotelName}}</h2><br>
+            <h4 style="text-align: right;">Hotel Description: {{hotel.description}}</h4><br>
+            <h5 style="text-align: right;">Hotel Rating: {{hotel.rating}}</h5><br>
+            <h5>{{hotel.city}}</h5>
+            <h5>{{hotel.pincode}}</h5>
+            <h5 style="text-align: right;">Contact Details: {{hotel.contact}}</h5><br>
+            <h5 style="text-align: right;">Email Here: {{hotel.email}}</h5><br>-->
+        
+            <tr *ngFor="let booking of bookings | async; let i = index">
+                <td>{{i+1}}</td>
+                <ng-container *ngFor="let hotel of hotels | async">
+                    <td *ngIf="booking.hotelId == hotel.hotelId">
+                        {{hotel.hotelName}}
+                    </td>
+                </ng-container>
+                <ng-container *ngFor="let room of rooms | async ">
+                    <td *ngIf="booking.roomId == room.id">
+                        {{room.roomNo}}
+                    </td>
+                </ng-container>
+                <ng-container *ngFor="let room of rooms | async ">
+                    <td *ngIf="booking.roomId == room.id">
+                        {{room.roomType}}
+                    </td>
+                </ng-container>
+                <td>{{booking.numOfGuests}}</td>
+                <td>{{booking.checkin}}</td>
+                <td>{{booking.checkout}}</td>
+                <td>{{booking.finalPrice}}</td>
+            </tr>     
+      </tbody>
+    </table>
+  </div>
+

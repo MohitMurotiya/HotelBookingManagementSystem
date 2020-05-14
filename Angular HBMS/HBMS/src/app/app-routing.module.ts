@@ -18,6 +18,7 @@ import { GuestsBookingsComponent } from './guests-bookings/guests-bookings.compo
 import { DateBookingsComponent } from './date-bookings/date-bookings.component';
 import { HotelBookingsComponent } from './hotel-bookings/hotel-bookings.component';
 import { AllBookingsComponent } from './all-bookings/all-bookings.component';
+import { CustomerHistoryComponent } from './customer-history/customer-history.component';
 
 const routes: Routes = [
   { path: 'hotelslist', component: ListHotelsComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'allBookings', component: AllBookingsComponent}]
   },
   { path: 'guestsBooking', component: GuestsBookingsComponent},
+  { path: 'history', component: CustomerHistoryComponent},
   { path: 'bookingsByHotel', component: HotelBookingsComponent},
   { path: 'bookRoom', component: BookingComponent},
   { path: 'viewHotel', component: ViewHotelComponent},

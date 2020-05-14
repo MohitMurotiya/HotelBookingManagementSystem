@@ -35,9 +35,9 @@ export class HotelComponent implements OnInit {
       console.log("inside delete Hotel "+ hotelId);
       this.adminService.deleteHotel(hotelId).subscribe(data => {
         console.log(data);
+        this.router.navigate(["admin"]);
       });
     }
-    this.router.navigate(["admin"]);
   }
 
   showRooms() {

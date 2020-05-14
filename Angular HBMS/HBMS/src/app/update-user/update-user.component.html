@@ -1,5 +1,53 @@
 
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+    <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+    <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav">
+      <!--<li class="nav-item">
+        <a class="nav-link">
+          <i class="fas fa-hotel"></i> HOTELS</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="fas fa-list-ul"></i> EMPLOYEES</a>
+      </li>-->
+      <li class="nav-item">
+        <button class="btn btn-dark font-weight-bold rounded nav-link" (click)="homePage()">
+        <i class="fas fa-home"></i> Home</button>
+      </li>
+      &nbsp;&nbsp;
+      <li>
+        <button class="btn btn-dark font-weight-bold rounded nav-link" (click)=history()>
+             <i class="fas fa-history"></i> My History</button>
+         </li>
+    </ul>
+   
+    <ul class="navbar-nav ml-auto">
+      
+      <!-- <li class="nav-item">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Settings</button>&nbsp;&nbsp;&nbsp;
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem class="dropdown-item fa fa-user" (click)="updateProfile()">Update Profile</button>
+          </div>
+        </div>
+      </li>-->
+      <li class="nav-item">
+        <a routerLink="/login" class="nav-link">
+          <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp; Logged in as {{this.thisCustomer.user.username}}</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/login" class="nav-link">
+          <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp; Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <h2>Update Profile</h2><br><br>
 <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onRegister()" >
     <div class="form-row">

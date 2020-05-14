@@ -41,6 +41,10 @@ export class AdminService {
     return this.http.delete('http://localhost:8023/room/delete/'+roomId);
   }
 
+  updateRoom(room: Room): Observable<any> {
+    return this.http.put('http://localhost:8023/room/update' ,room);
+  }
+
   getAllBookings(): Observable<any> {
     return this.http.get('http://localhost:8031/bookings');
   }

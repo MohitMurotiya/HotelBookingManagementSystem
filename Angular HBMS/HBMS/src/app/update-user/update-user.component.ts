@@ -28,4 +28,14 @@ export class UpdateUserComponent implements OnInit {
     this.route.navigate(['login']);
   }
 
+  homePage() {
+    this.thisCustomer=history.state;
+    this.route.navigateByUrl('/customer',{state: this.thisCustomer})
+  }
+
+  history() {
+    let user:RegisterUser = history.state;
+    this.route.navigateByUrl('/history',{state: user});
+  }
+
 }

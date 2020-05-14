@@ -4,6 +4,48 @@
       <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
         <span class="navbar-toggler-icon"></span>
       </button>
+  
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav">
+        <!--<li class="nav-item">
+          <a class="nav-link">
+            <i class="fas fa-hotel"></i> HOTELS</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">
+            <i class="fas fa-list-ul"></i> EMPLOYEES</a>
+        </li>-->
+        <li class="nav-item">
+          <button class="btn btn-dark font-weight-bold rounded nav-link" (click)="homePage()">
+          <i class="fas fa-home"></i> Home</button>
+        </li>
+        &nbsp;&nbsp;
+        <li>
+          <button class="btn btn-dark font-weight-bold rounded nav-link" (click)=history()>
+               <i class="fas fa-history"></i> My History</button>
+           </li>
+      </ul>
+     
+      <ul class="navbar-nav ml-auto">
+        
+        <!-- <li class="nav-item">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Settings</button>&nbsp;&nbsp;&nbsp;
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem class="dropdown-item fa fa-user" (click)="updateProfile()">Update Profile</button>
+            </div>
+          </div>
+        </li>-->
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link">
+            <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp; Logged in as {{this.parser.user.user.username}}</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp; Logout</a>
+        </li>
+      </ul>
+    </div>
   </nav>
     <h2 style="background-color: cornflowerblue; text-align: center;" class="text-white p-2 rounded"><i class="fas fa-sign-in"></i> &nbsp;Book Room</h2>
     
@@ -20,11 +62,18 @@
     Guests
     <input type="number" placeholder="Enter the number of guests" class="form-control" id="numOfGuests" [(ngModel)]="booking.numOfGuests" name="numOfGuests" required> <hr><br>
 
-    <button type="button" class="btn btn-success" (click)="cal()"> Calculate Total Ammount:</button>
+    <button type="button" class="btn btn-info" (click)="cal()"> Calculate Total Ammount:</button>
     &nbsp;&nbsp;&nbsp;{{this.booking.finalPrice}}<br>
     <hr><br>
-    
-<button type="submit" class="btn btn-success btn-block">Submit</button>
+ 
+  <div class="row">
+    <div class="col-md-4">
+<button type="submit" class="btn btn-success btn-block">Book Room</button>
+</div>
+<div class="col-md-4">
+<button type="submit" class="btn btn-danger btn-block" (click)="hotelPage()">Cancel Booking</button>
+</div>
+</div>
 </form>
 </div>
 </div>

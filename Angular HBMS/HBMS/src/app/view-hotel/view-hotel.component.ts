@@ -52,4 +52,14 @@ export class ViewHotelComponent implements OnInit {
     this.router.navigateByUrl('/bookRoom',{state: this.parser});
   }
 
+  history() {
+    this.parser = history.state
+    this.router.navigateByUrl('/history',{state: this.parser.user});
+  }
+
+  homePage() {
+    this.user=history.state;
+    this.router.navigateByUrl('/customer',{state: this.user})
+  }
+
 }

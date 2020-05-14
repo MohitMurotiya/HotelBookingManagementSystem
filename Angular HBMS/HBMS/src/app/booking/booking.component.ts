@@ -22,7 +22,7 @@ export class BookingComponent implements OnInit {
   constructor(private router:Router, private customerService: CustomerService) { }
 
   ngOnInit(): void {
-    
+    this.parser = history.state;
   }
 
   cal() {
@@ -32,7 +32,6 @@ export class BookingComponent implements OnInit {
     var date2 = new Date(this.booking.checkin);
     var diffTime = (date1.getTime() - date2.getTime()); 
     var diffDays = diffTime / (24 * 3600 * 1000);
-    console.log(date1.getTime())
     console.log("Difference="+ diffDays)
     this.day = diffDays;
     console.log("Days="+this.day)
@@ -62,6 +61,21 @@ export class BookingComponent implements OnInit {
     this.booking = new Booking();
     alert("Room Booked Succesfully!!");
     this.router.navigateByUrl('/customer',{state:this.parser.user});
+  }
+
+  history() {
+    this.parser=history.state;
+    this.router.navigateByUrl('/history',{state: this.parser.user});
+  }
+
+  homePage() {
+    this.parser=history.state;
+    this.router.navigateByUrl('/customer',{state: this.parser.user})
+  }
+
+  hotelPage() {
+    this.parser=history.state;
+    this.router.navigateByUrl('/viewHotel',{state: this.parser})
   }
 
 }

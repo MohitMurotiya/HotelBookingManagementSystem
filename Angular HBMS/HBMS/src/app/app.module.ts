@@ -28,6 +28,7 @@ import { HotelBookingsComponent } from './hotel-bookings/hotel-bookings.componen
 import { GuestsBookingsComponent } from './guests-bookings/guests-bookings.component';
 import { DateBookingsComponent } from './date-bookings/date-bookings.component';
 import { CommonModule } from '@angular/common';
+import { CustomerHistoryComponent } from './customer-history/customer-history.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CommonModule } from '@angular/common';
     HotelBookingsComponent,
     GuestsBookingsComponent,
     DateBookingsComponent,
+    CustomerHistoryComponent,
   ],
   imports: [
     BrowserModule,

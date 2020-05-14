@@ -11,3 +11,16 @@ h2{
     border-right-width: 10px;
     border-color: cadetblue;
 }
+
+#menu ul li a:hover{
+	background-color: white;
+	color:black;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px){
+	[class*="col-"]{
+		width: 100%;
+	}
+}
