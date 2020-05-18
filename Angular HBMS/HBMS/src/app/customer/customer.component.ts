@@ -7,6 +7,7 @@ import { CustomerService } from '../customer.service';
 import { Hotel } from '../hotel';
 import { Booking } from '../Booking';
 import { Parser } from '../parser';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -21,6 +22,10 @@ export class CustomerComponent implements OnInit {
   city: string='';
   hotels: Observable<any>;
   parser: Parser = new Parser();
+  hsize: number;
+  arrayHotels:Hotel[]=[];
+  type : string;
+  message: string;
   
   constructor(private router:Router, private customerService: CustomerService) { }
 
@@ -40,31 +45,61 @@ export class CustomerComponent implements OnInit {
     this.router.navigateByUrl('/updateUser',{state:this.customer});
   }
 
-  searchHotels() {
-    if(this.search=="Search By Name"){
-      this.listHotelsByName();
-    } else if(this.search=="Search By City"){
-      this.listHotelsByCity();
-    } else if(this.search=="Search By Rating"){
-      this.listHotelsByRating();
+  searchHotels(form:NgForm) {
+    if(form.valid){
+      if(this.search=="Search By Name"){
+        this.listHotelsByName();
+      } else if(this.search=="Search By City"){
+        this.listHotelsByCity();
+      } else if(this.search=="Search By Rating"){
+        this.listHotelsByRating();
     }
+  }
   }
 
   listHotelsByCity() {
-    console.log(this.choice);
-    this.hotels = this.customerService.listHotelsByCity(this.choice);
+    this.customerService.listHotelsByCity(this.choice).subscribe((arrayHotels) => { 
+      this.arrayHotels = arrayHotels;
+      this.hsize=this.arrayHotels.length
+      if(this.hsize<1)
+      {
+        alert('We are not in this City yet..!!')
+    } else {
+      this.hotels=this.customerService.listHotelsByCity(this.choice);
+    } 
   }
+  )}
 
   listHotelsByName() {
     console.log(this.choice);
     let name:string=this.choice
-    this.hotels = this.customerService.listHotelsByName(name);
+    this.customerService.listHotelsByName(name).subscribe((arrayHotels) => { 
+    this.arrayHotels = arrayHotels;
+    this.hsize=this.arrayHotels.length
+    if(this.hsize<1)
+    {
+      alert('Hotels of this Name are not present..!!')
+    } else {
+      this.hotels=this.customerService.listHotelsByName(name);
+    } 
   }
+  )}
+    //this.hotels = this.customerService.listHotelsByName(name);
 
   listHotelsByRating() {
     console.log(this.choice);
-    this.hotels = this.customerService.listHotelsByRating(this.choice);
+    this.customerService.listHotelsByRating(this.choice).subscribe((arrayHotels) => { 
+    this.arrayHotels = arrayHotels;
+    this.hsize=this.arrayHotels.length
+    if(this.hsize<1)
+    {
+      alert('Hotels of this rating are not present..!!')
+    } else {
+       this.hotels=this.customerService.listHotelsByRating(this.choice);
+    } 
   }
+)}
+    //this.hotels = this.customerService.listHotelsByRating(this.choice);
 
   listHotels() {
     this.hotels = this.customerService.listHotels();

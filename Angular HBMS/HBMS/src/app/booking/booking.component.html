@@ -47,22 +47,50 @@
       </ul>
     </div>
   </nav>
-    <h2 style="background-color: cornflowerblue; text-align: center;" class="text-white p-2 rounded"><i class="fas fa-sign-in"></i> &nbsp;Book Room</h2>
+  <h2 style="background-color: purple;" class="text-white p-2 rounded"><i class="fas fa-bed"></i> &nbsp;Book A Room</h2>
     
 <div class="row">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="col-md-8">
-<form (ngSubmit)="onSubmit()">
-    Check In
-    <input type="date" placeholder="CheckIn" class="form-control" id="checkin" [(ngModel)]="booking.checkin" name="checkin" required>
-<hr>
-    Check Out
-    <input type="date" placeholder="CheckOut" class="form-control" id="checkout" [(ngModel)]="booking.checkout" name="checkout" required>
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit()">
+    <!--Check In
+    <input type="date" placeholder="CheckIn" class="form-control" id="checkin" [(ngModel)]="booking.checkin" name="checkin" required>-->
     <hr>
-    Guests
-    <input type="number" placeholder="Enter the number of guests" class="form-control" id="numOfGuests" [(ngModel)]="booking.numOfGuests" name="numOfGuests" required> <hr><br>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label>Check In</label>
+        <input type="date" class="form-control" name="checkin" [(ngModel)]="booking.checkin" #checkin="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && checkin.invalid }" required>
+        <div *ngIf="userForm.submitted && checkin.invalid" class="invalid-feedback">
+          <div *ngIf="checkin.errors.required">Empty Date field</div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label>Check Out</label>
+        <input type="date" class="form-control" name="checkout" [(ngModel)]="booking.checkout" #checkout="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && checkout.invalid }" required>
+        <div *ngIf="userForm.submitted && checkout.invalid" class="invalid-feedback">
+          <div *ngIf="checkout.errors.required">Empty Date Field</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <br>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label>Guest</label>
+        <input type="number" class="form-control" name="numOfGuests" [(ngModel)]="booking.numOfGuests" #numOfGuests="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && numOfGuests.invalid }" pattern="[1-3]{1}"  required>
+        <div *ngIf="userForm.submitted && numOfGuests.invalid" class="invalid-feedback">
+          <div *ngIf="numOfGuests.errors.required">Required</div>
+          <div *ngIf="numOfGuests.errors.pattern">Not more than 3 Guests!</div>
+        </div>
+      </div>
+    </div>
+    <!--Guests
+    <input type="number" placeholder="Enter the number of guests" class="form-control" id="numOfGuests" [(ngModel)]="booking.numOfGuests" name="numOfGuests" required> <hr><br>-->
 
-    <button type="button" class="btn btn-info" (click)="cal()"> Calculate Total Ammount:</button>
+    <button type="button" class="btn btn-info" (click)="cal()">Total Amount</button>
     &nbsp;&nbsp;&nbsp;{{this.booking.finalPrice}}<br>
     <hr><br>
  

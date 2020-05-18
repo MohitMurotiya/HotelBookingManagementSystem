@@ -50,13 +50,14 @@
 
   <div class="container-fluid pt-3">
     <div class="jumbotron" style="background-color:lightgoldenrodyellow;">
-        <h3 style="text-align: center; font-family: 'Times New Roman', Times, serif">WELCOME</h3>
-        <h6 style="text-align: center; font-family: 'Times New Roman', Times, serif">IN</h6>
-        <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif">LUXURY STAYS</h1>
+        <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif">WELCOME TO LUXURY STAYS</h1>
+        <br>
+        <h5 style="text-align: center; font-family: 'Times New Roman', Times, serif">MORE THAN A HOTEL...AN EXPERIENCE</h5>
     </div>
 </div>
 
 <div class="container pt-3">
+  <form #viewForm="ngForm" (submit)='searchHotels(viewForm)'>
     <div class="input-group mt-3 mb-3">
       <div class="input-group-prepend">
         <select class="form-control" id="search" [(ngModel)]="search" name="search" required>
@@ -67,9 +68,10 @@
       </div>
       <input type="text" class="form-control" id="choice" [(ngModel)]="choice" placeholder="Select the filter from Dropdown" name="choice">
       <div class="input-group-append">
-        <button class="btn btn-success" (click)=searchHotels()>Search Hotel</button>
+        <button class="btn btn-success">Search Hotel</button>
+      </div>
     </div>
-    </div>
+  </form>
 </div>
 
 <div class="container mt-2">

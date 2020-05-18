@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy package &apos;com.cg.room.dao&apos; to &apos;BookingViewService/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;RoomViewService&apos;&#x0D;&#x0A;- Destination element: &apos;BookingViewService/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;RoomViewService/src/main/java/com.cg.room.dao&apos;" description="Copy package" destination="=BookingViewService/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cg.room.dao" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1589105661703" version="1.0"/>
-</session>
