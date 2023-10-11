@@ -19,11 +19,11 @@ Then add in the login table and make sure to give role admin and copy its key to
 At last use both keys in the registration table and now you can use your admin credentials.
 
 **Start microservices in order**
-Eureka
-User management
-User update, User view
-Hotel Management
-Hotel update, Hotel view
-Room update, Room view
-Booking Management
-Booking Update and Booking view
+ - Eureka
+ - User management
+ - User update, User view
+ - Hotel Management
+ - Hotel update, Hotel view
+ - Room update, Room view
+ - Booking Management
+ - Booking Update and Booking View
